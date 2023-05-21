@@ -1,36 +1,36 @@
 @font-face {
     font-family: titleFont;
-    src: url(fonts/11.20___.TTF);
+    src: url(../fonts/11.20___.TTF);
 }
 
 @font-face {
     font-family: placeholders;
-    src: url(fonts/LilGrotesk-Regular.otf);
+    src: url(../fonts/LilGrotesk-Regular.otf);
 }
 
 @font-face {
     font-family: buttons;
-    src: url(fonts/LilGrotesk-Bold.otf);
+    src: url(../fonts/LilGrotesk-Bold.otf);
 }
 
 @font-face{
     font-family: roboto-bold;
-    src: url(fonts/Roboto-Bold.ttf);
+    src: url(../fonts/Roboto-Bold.ttf);
 }
 
 @font-face{
     font-family: right;
-    src: url(fonts/Righteous-Regular.ttf);
+    src: url(../fonts/Righteous-Regular.ttf);
 }
 
 @font-face {
     font-family: agrandir;
-    src: url(fonts/Agrandir-Regular.otf);
+    src: url(../fonts/Agrandir-Regular.otf);
 }
 
 @font-face {
     font-family: libre;
-    src: url(fonts/LibreBaskerville-Regular.ttf);
+    src: url(../fonts/LibreBaskerville-Regular.ttf);
 }
 
 body{
@@ -109,7 +109,7 @@ nav ul{
     margin-top: 0px;
     height: 75vh;
     width: 68vw;
-    background-image: url("images/bg.png");
+    background-image: url("../images/bg.png");
     background-size: cover;
     background-repeat: no-repeat;
     padding: 30vh 0px 0px 32vw;
@@ -247,7 +247,7 @@ nav ul{
     margin-bottom: 5vh;
     height: 3vw;
     align-items: center;
-    background-image: url(images/job-seeker.png);
+    background-image: url(../images/job-seeker.png);
     background-position: left;
     background-repeat: no-repeat;
     padding-left: 4vw;
@@ -293,19 +293,19 @@ nav ul{
 #address{
     height: 5vh;
     padding-left: 3vw;
-    background-image: url(images/pin.png);
+    background-image: url(../images/pin.png);
 }
 
 #tele{
     height: 5vh;
     padding-left: 3vw;
-    background-image: url(images/telephone.png);
+    background-image: url(../images/telephone.png);
 }
 
 #mail{
     height: 5vh;
     padding-left: 3vw;
-    background-image: url(images/email.png);
+    background-image: url(../images/email.png);
 }
 
 #social{
