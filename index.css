@@ -1,0 +1,342 @@
+@font-face {
+    font-family: titleFont;
+    src: url(fonts/11.20___.TTF);
+}
+
+@font-face {
+    font-family: placeholders;
+    src: url(fonts/LilGrotesk-Regular.otf);
+}
+
+@font-face {
+    font-family: buttons;
+    src: url(fonts/LilGrotesk-Bold.otf);
+}
+
+@font-face{
+    font-family: roboto-bold;
+    src: url(fonts/Roboto-Bold.ttf);
+}
+
+@font-face{
+    font-family: right;
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: agrandir;
+    src: url(fonts/Agrandir-Regular.otf);
+}
+
+@font-face {
+    font-family: libre;
+    src: url(fonts/LibreBaskerville-Regular.ttf);
+}
+
+body{
+    margin: 10vh 0px 0px 0px;
+    padding: 0px;
+}
+
+nav{
+    width: 100vw;
+    background-color: #88a4af;
+    height: 10vh;
+    margin: 0px;
+    margin-bottom: 0px;
+    position: fixed;
+    top: 0px;
+}
+
+nav ul{
+    margin: 0px;
+    display: flex;
+    list-style-type: none;
+    padding: 0.5vh 5vw 0vh 5vw;
+}   
+
+#navButtons li{
+    /* margin-right: 6vw; */
+    width: 20vw;
+}
+
+#name{
+    padding-top: 1vh;
+    font-family: titleFont;
+    font-size: 4vw;
+    color: black;
+    margin-right: 15vw;
+}
+
+.options{
+    padding: 4vh 0px 0px 5vw;
+    color: white;
+    font-family: roboto-bold;
+    margin-right: 5vw;
+}
+
+.options a{
+    text-decoration: none;
+    color: white;
+    font-size: 1.5vw;
+}
+
+.options a:hover{
+    border-bottom: 2px solid orange;
+}
+
+#log-in{
+    padding-top: 3vh;
+}
+
+#log-in button{
+    color: white;
+    background-color: #222344;
+    border: none;
+    width: 10vw;
+    height: 5vh;
+    font-weight: bold;
+    font-size: 1.3vw;
+    border-radius: 10px;
+}
+
+#log-in button:hover{
+    background-color: violet;
+    cursor: pointer;
+}
+
+#bgImage{
+    margin-top: 0px;
+    height: 75vh;
+    width: 68vw;
+    background-image: url("images/bg.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 30vh 0px 0px 32vw;
+}
+
+#slogan{
+    color: white;
+    font-family: agrandir;
+    font-size: 4vw;
+    margin-left: -4vw;
+}
+
+#temp{
+    display: flex;
+    margin-left: -7vw;
+}
+
+#nameSearch{
+    border: none;
+    border-top-left-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+    height: 3vh;
+    width: 20vw;
+    margin: 0px 0px 0px -6vw;
+    padding: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2vw;
+}
+
+#citySearch{
+    border: none;
+    border-top-right-radius: 3vw;
+    border-bottom-right-radius: 3vw;
+    height: 3vh;
+    width: 20vw;
+    margin: 0px;
+    padding: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2vw;
+}
+
+#temp:before{
+    content: "";
+    position: relative;
+    top: 1vh;
+    left: 21.4%;
+    width: 10%;
+    height: 5vh;
+    background-color: transparent;
+    border-right: 1px solid gray;
+}
+
+#citySearch:focus, #nameSearch:focus{
+    outline: none;
+}
+
+#page2{
+    width: 95vw;
+    height: 70vh;
+    /* background-image: linear-gradient(to right, white, #88a4af); */
+    background-image: linear-gradient(to right, #ff5757, #8C52FF);
+    padding: 5vh 0px 0px 5vw;
+}
+
+#page2 div{
+    display: flex;
+    width: 85vw;
+    margin: 0px 0px 5vh 5vw;
+}
+
+#recAdd, img{
+    margin-right: 10vw;
+}
+
+#jobAdd, aside{
+    margin-right: 10vw;
+}
+
+#page2 p{
+    color: white;
+    font-weight: bold;
+    font-family: roboto-bold;
+    font-size: 2vw;
+}
+
+#page2 h1{
+    font-weight: bold;
+    font-family: roboto-bold;
+    font-size: 2vw;
+}
+
+#getStarted{
+    color: white;
+    font-weight: bold;
+    font-size: 1.5vw;
+    background-color: #8C52FF;
+    margin-left: 5vw;
+    margin-top: -5vh;
+    border: none;
+    border-radius: 5px;
+    align-items: center;
+    height: 8vh;
+    width: 20vw;
+}
+
+#page3{
+    display: flex;
+    background-color: #f4f1ec;
+}
+
+#page3 img{
+    width: 70vw;
+    height: 100vh;
+}
+
+#page3 aside{
+    padding: 10vh 0vw 0px 4vw;
+}
+
+#page3 h1{
+    font-size: 4vw;
+    margin-bottom: 7vh;
+}
+
+#page3 p{
+    margin-bottom: 7vh;
+}
+
+
+#page3 ul{
+    list-style-type: none;
+}
+
+#page3 li{
+    margin-bottom: 5vh;
+    height: 3vw;
+    align-items: center;
+    background-image: url(images/job-seeker.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left: 4vw;
+    padding-top: 3vh;
+    background-size: 3vw;
+}
+
+#page4{
+    margin-top: 0px;
+    border-top:1px solid black;
+}
+
+#generalFooter{
+    display: flex;
+}
+
+#generalFooter ul{
+    margin-left: 10vw;
+    min-width: 15vw;
+    list-style-type: none;
+    font-family: placeholders;
+}
+
+#generalFooter li{
+    margin-bottom: 3vh;
+}
+
+#generalFooter a{
+    text-decoration: none;
+    color: black;
+}
+
+#generalFooter h2{
+    font-family: libre;
+}
+
+#generalFooter li{
+    background-size: 2vw;
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+#address{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(images/pin.png);
+}
+
+#tele{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(images/telephone.png);
+}
+
+#mail{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(images/email.png);
+}
+
+#social{
+    display: flex;
+    border-bottom: 3px solid black;
+    width: 95vw;
+    margin-left: 2.5vw;
+    list-style-type: none;
+}
+
+#social li{
+    margin-left: 2vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.logo{
+    width: 30px;
+}
+
+footer ul{
+    list-style-type: none;
+    display: flex;
+}
+
+footer li{
+    margin-left: 15vw;
+}
+
+footer a{
+    text-decoration: none;
+    color: black;
+}
