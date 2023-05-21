@@ -5,31 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderWork</title>
+    <link rel="stylesheet" href="index.css" type="text/css">
 </head>
 <body>
     <div id="page1">
         <nav id="navbar">
             <ul id="navButtons">
-                <li>SpiderWork</li>
-                <li><a href="">Jobs</a></li>
-                <li><a href="">Employers</a></li>
-                <li><a href="">Recruiters</a></li>
-                <li><button>Log In</button></li>
+                <li id="name">SpiderWork</li>
+                <li class="options"><a href="">Jobs</a></li>
+                <li class="options"><a href="">Employers</a></li>
+                <li class="options"><a href="">Recruiters</a></li>
+                <li id="log-in"><button>Log In</button></li>
             </ul>
         </nav>
         <div id="bgImage">
             <form method="get" action="">
                 <h1 id="slogan">Choose a job you love</h1>
-                <div>
-                    <input id="nameSearch" type="text">
-                    <input id="citySearch" type="text">
+                <div id="temp">
+                    <input id="nameSearch" type="text" placeholder="Company name">
+                    <input id="citySearch" type="text" placeholder="Location">
                 </div>
             </form>
         </div>
     </div>
     <div id="page2">
         <div id="recAdd">
-            <img src="">
+            <img src="images/networking.png" height="150" width="150">
             <aside>
                 <h1>Get invited to apply to jobs</h1>
                 <p>
@@ -47,12 +48,12 @@
                     become more popular in the market
                 </p>
             </aside>
-            <img src="">
+            <img src="images/resume.png" height="150" width="150">
         </div>
         <button id="getStarted">Get started!</button>
     </div>
     <div id="page3">
-            <img>
+            <img src="images/pexels-alesia-kozik-6772076.jpg">
             <aside>
                 <h1>Our Services</h1>
                 <p>
@@ -70,10 +71,10 @@
         <div id="generalFooter">
             <ul>
                 <li><h2>Contact Us</h2></li>
-                <li>123 Anywhere St.
+                <li id="address">123 Anywhere St.<br>
                     Any City, ST 12345</li>
-                <li>(123) 456-7890</li>
-                <li>hello@reallygreatsite.com</li>
+                <li id="tele">(123) 456-7890</li>
+                <li id="mail">hello@reallygreatsite.com</li>
             </ul>
             <ul>
                 <li><h2>SpiderWork</h2></li>
@@ -89,9 +90,9 @@
         </div>
         <div id="social">
             <li>Follow us online</li>
-            <li id="fb"><a href=""></a></li>
-            <li id="tweet"><a href=""></a></li>
-            <li id="ig"><a href=""></a></li>
+            <li class="logo"><img src="images/facebook.png" width="20" height="20"></li>
+            <li class='logo'><img src="images/twitter.png" width="20" height="20"></li>
+            <li class="logo"><img src="images/instagram.png" width="20" height="20"></li>
         </div>
         <footer>
             <ul>
