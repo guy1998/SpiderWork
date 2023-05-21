@@ -16,7 +16,7 @@ const activateSignUp = function(){
     socials.classList.add('hidden');
     div.classList.remove('waiting')
     signBtn.classList.add('hidden');
-    document.body.style.backgroundImage = 'url("images/pexels-rūdolfs-klintsons-7120352.jpg")';
+    document.body.style.backgroundImage = 'url("../images/pexels-rūdolfs-klintsons-7120352.jpg")';
     setTimeout(() => {
         back.classList.remove('waiting');
     }, 500);
