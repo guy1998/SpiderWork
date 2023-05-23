@@ -1,0 +1,115 @@
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+#menu{
+    background-image: url("../images/bg image.jpeg");
+    height: 250px;
+    width: 98.9vw;
+    display: flex;
+}
+
+#menu li{
+    margin-right: 3vw;
+}
+
+#options{
+    margin-right: 50vw;
+    display: flex;
+    list-style-type: none;
+}
+
+#options a{
+    text-decoration: none;
+    color: white;
+}
+
+#sNp{
+    display: flex;
+    list-style-type: none;
+}
+
+#sNp input[type="text"]{
+    border-radius: 10px;
+    width: 13vw;
+    height: 2.5vh;
+}
+
+#sNp button{
+    border-radius: 20px;
+    width: 3vw;
+    height: 5vh;
+    background-image: url("../images/user.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#feed li{
+    padding-left: 30%;
+    display: flex;
+}
+
+#feedlist{
+    margin-right: 30vw;
+    display: flex;
+    list-style-type: none;
+}
+
+#feedlist a{
+    text-decoration: none;
+    color: black;
+}
+
+#profile{
+    position: absolute;
+    z-index: 1;
+    top: 25%;
+    left: 3%;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 20%;
+    background-color: beige;
+}
+
+#profile p{
+    margin-left: 10%;
+}
+
+#profile img{
+    margin-left: 25%;
+}
+
+#suggested {
+    position: absolute;
+    z-index: 1;
+    top: 35%;
+    left: 80%;
+    width: 15vw;
+    height: 50vh;
+    border-radius: 20%;
+    background-color: beige;
+}
+
+#suggested p{
+    margin-left: 10%;
+}
+
+#posts {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 30%;
+    width: 30vw;
+    height: 15vh;
+    border-radius: 10%;
+    background-color: beige;
+}
+
+#texts{
+    position: absolute;
+    margin-left: 20%;
+   
+
+}
