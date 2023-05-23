@@ -70,7 +70,8 @@ body{
     width: 15vw;
     height: 50vh;
     border-radius: 20%;
-    background-color: beige;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
 }
 
 #profile p{
@@ -105,11 +106,30 @@ body{
     height: 15vh;
     border-radius: 10%;
     background-color: beige;
+    display: flex;
+}
+
+#profImage{
+    background-image: url("../images/user.png");
+    background-size: 6vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 6vw;
 }
 
 #texts{
-    position: absolute;
-    margin-left: 20%;
-   
+    position: relative;
+    /* The trickster */
+    top: -3vh;
+    left: 0.5vw;
+}
 
+#texts img{
+    margin-right: 0.7vw;
+}
+
+#setting{
+    position: relative;
+     top: 0.5vh;
+    left: 20vw;
 }
