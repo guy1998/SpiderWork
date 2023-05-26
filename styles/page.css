@@ -93,9 +93,10 @@ section{
     transition: margin-left 0.3s ease-in-out 0s;
     border-right: 1px solid rgb(206, 217, 222);
     width: 30vw;
-    min-height: 85vh;
-    max-height: 85vh;
+    min-height: 100vh;
+    max-height: 100vh;
     position: sticky;
+    margin-bottom: 3vh;
 }
 
 .bigSearchDiv{
@@ -154,4 +155,93 @@ section{
     margin: 0px;
     color: rgb(38, 50, 56);
     font-size: 20px;
+}
+
+
+#page4{
+    margin-top: 0px;
+    border-top:1px solid black;
+    background-color:rgb(84, 110, 122);
+}
+
+#generalFooter{
+    display: flex;
+}
+
+#generalFooter ul{
+    margin-left: 10vw;
+    min-width: 15vw;
+    list-style-type: none;
+    font-family: placeholders;
+}
+
+#generalFooter li{
+    margin-bottom: 3vh;
+}
+
+#generalFooter a{
+    text-decoration: none;
+    color: white;
+}
+
+#generalFooter h2{
+    font-family: libre;
+}
+
+#generalFooter li{
+    background-size: 2vw;
+    background-repeat: no-repeat;
+    background-position: left;
+    color: white;
+}
+
+#address{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(../images/pin.png);
+}
+
+#tele{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(../images/telephone.png);
+}
+
+#mail{
+    height: 5vh;
+    padding-left: 3vw;
+    background-image: url(../images/email.png);
+}
+
+#social{
+    display: flex;
+    border-bottom: 3px solid black;
+    width: 95vw;
+    margin-left: 2.5vw;
+    list-style-type: none;
+}
+
+#social li{
+    margin-left: 2vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+footer ul{
+    list-style-type: none;
+    display: flex;
+}
+
+footer li{
+    margin-left: 15vw;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+.profileImg{
+    border-radius: 50%;
 }
