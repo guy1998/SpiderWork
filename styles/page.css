@@ -19,15 +19,16 @@ nav{
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid transparent;
-    height: 64px;
-    padding: 16px 24px 0px;
+    height: 8vh;
+    padding: 1vh 1.5vw 0px 0vw;
+    margin-bottom: 4vh;
 }
 
 label.logo{
     color: #555;
-    font-size: 35px;
+    font-size: 2vw;
     line-height: 80px;
-    padding: 0 100px;
+    padding: 0 10vh;
     font-weight: bold;
 }
 
@@ -39,7 +40,7 @@ nav ul{
 nav ul li{
     display: inline-block;
     line-height: 80px;
-    margin: 0 5px;
+    margin: 0 0.7vw;
 }
 
 nav ul li a{
@@ -63,12 +64,18 @@ a.active,a:hover{
 .searchBar{
     align-items: center;
     background-color: rgb(236, 239, 241);
-    border: 0px;
+    border: none;
     display: flex;
     flex-grow: 1;
-    min-height: 40px;
+    min-height: 3.5vh;
     position: relative;
-    border-radius: 8px;
+    border-radius: 0.8vh;
+    padding-left: 1.2vw;
+    background-image: url("../images/search.png");
+    background-size: 1.5vh;
+    background-repeat: no-repeat;
+    background-position: left;
+    font-size: 0.8vw;
 }
 
 .searchNav{
@@ -81,23 +88,14 @@ a.active,a:hover{
 section{
     background-color: rgb(255, 255, 255);
     display: block;
-    overflow: hidden;
+    overflow-y: auto;
     top: 0px;
     transition: margin-left 0.3s ease-in-out 0s;
     border-right: 1px solid rgb(206, 217, 222);
-    max-width: 600px;
-    min-width: 470px;
+    width: 30vw;
+    min-height: 85vh;
+    max-height: 85vh;
     position: sticky;
-    width: 38.2vw;
-    height: 629px;
-}
-
-.scrollable{
-    position: absolute;
-    inset: 0px;
-    overflow: scroll;
-    margin-right: -15px;
-    margin-bottom: -15px;
 }
 
 .bigSearchDiv{
@@ -117,36 +115,30 @@ section{
     justify-content: flex-start;
 }
 
-a.jobLink{
-    color: inherit;
-    cursor: pointer;
-    font-size: inherit;
-    text-decoration: inherit;
-    align-items: start;
-    background-color: rgb(236, 239, 241);
-    flex-direction: row;
-    display: flex;
-    border: 1px solid rgb(236, 239, 241);
-    border-radius: 32px;
-    margin: 0px 24px 16px;
-    padding: 32px 16px;
-    width: calc(100% - 48px);
-}
-
 .jobListing{
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     display: flex;
     justify-content: flex-start;
+    background-color: lightgray;
+    border: none;
+    padding: 3vh 0px 0px 2vw;
+    border-radius: 2vw;
+    width: 25vw;
+    height: 20vh;
 }
 
 .divisionLogoAndInfo{
     flex-direction: row;
-    padding-left: 0px;
     width: 100%;
-    align-items: flex-start;
+    align-items:flex-start;
     display: flex;
     justify-content: flex-start;
+}
+
+.jobLogo{
+    margin-right: 2vw;
+    margin-left: 1vw;
 }
 
 .jobInfo{
