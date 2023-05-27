@@ -67,8 +67,8 @@ body{
     z-index: 1;
     top: 25%;
     left: 3%;
-    width: 15vw;
-    height: 50vh;
+    width: 20vw;
+    height: 60vh;
     border-radius: 20%;
     background-color: white;
     box-shadow: 0px 5px 20px 1px gray;
@@ -86,11 +86,12 @@ body{
     position: absolute;
     z-index: 1;
     top: 35%;
-    left: 80%;
-    width: 15vw;
-    height: 50vh;
+    left: 75%;
+    width: 20vw;
+    height: 55vh;
     border-radius: 20%;
-    background-color: beige;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
 }
 
 #suggested p{
@@ -102,11 +103,13 @@ body{
     z-index: 1;
     top: 40%;
     left: 30%;
-    width: 30vw;
+    width: 35vw;
     height: 15vh;
     border-radius: 10%;
     background-color: beige;
     display: flex;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
 }
 
 #profImage{
