@@ -1,9 +1,10 @@
-
 CREATE TABLE person (
   userid INT PRIMARY KEY AUTO_INCREMENT,
   name VARCHAR(50) NOT NULL,
   surname VARCHAR(50) NOT NULL,
   email VARCHAR(100) NOT NULL,
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
   birthday DATE NOT NULL,
   profilepic TEXT NOT NULL
 );
@@ -40,6 +41,8 @@ CREATE TABLE Employer (
   ownerSurname VARCHAR(100),
   field VARCHAR(100),
   email VARCHAR(100),
+  username VARCHAR(50) NOT NULL,
+  password VARCHAR(50) NOT NULL,
   foundingDate DATE,
   profilepic TEXT NOT NULL
 );
