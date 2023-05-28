@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +36,7 @@
 
             <li onclick="activateWorkerForm()">WORK</li>
             <div id="formWorker">
-                <form method="post" action="">
+                <form method="POST" onsubmit="alert('Hello')" action="" enctype="multipart/form-data">
                     <h3>General information:</h3>
                     <div class="form-group">
                         <label>Name</label>
@@ -53,12 +58,24 @@
                         <label>Birthday</label>
                         <input type="date" name ='birthday' required>
                     </div>
+                    <div class="form-group">
+                        <label>Work field</label>
+                        <input type="text" name ='field' required>
+                    </div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name ='username' required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name ='password' required>
+                    </div>
                     <h3>Professional experience:</h3>
-                    <div id="readField" style="display: none;">
+                    <div id="readField">
                         <h4>Employer</h4>
                         <div class="form-group">
                             <label>Employer's name</label>
-                            <input type="text" name ='phone' required>
+                            <input type="text" name ='empName' required>
                         </div>
                         <div class="form-group">
                             <label>Years</label>
@@ -66,28 +83,22 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label>
-                            <textarea></textarea>
+                            <textarea name="jobDesc"></textarea>
                         </div>
                     </div>
-                    <div id='seekerXp' class="extendable">
-                        <button class="add-buttons" onclick="addExperienceField()">Add experience</button>
-                    </div>
                     <h3>Education:</h3>
-                    <div id="readField2" style="display: none;">
+                    <div id="readField2">
                         <h4>School</h4>
                         <div class="form-group">
                             <label>School's name</label>
-                            <input type="text" name ='phone' required>
+                            <input type="text" name ='school' required>
                         </div>
                         <div class="form-group">
                             <label>Degree</label>
-                            <input type="text" name ='years' required>
+                            <input type="text" name ='degree' required>
                         </div>
                     </div>
-                    <div id="seekerSchool" class="extendable">
-                        <button class="add-buttons" onclick="addSchoolField()">Add education</button>
-                    </div>
-                    <input type="submit" name="signUp1" id="signUp1" value="Sign-Up">
+                    <input type="submit" name="signUp1" id="signUp1" value="Sign-Up" class="add-buttons">
                 </form>
             </div>
 
@@ -96,12 +107,24 @@
             <form method="post" action="">
                 <h3>General information:</h3>
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" name ='name' required><br>
+                    <label>Company's name</label>
+                    <input type="text" name ='Coname' required><br>
                 </div>
                 <div class="form-group">
-                    <label>Surname</label>
-                    <input type="text" name="surname" required><br>
+                    <label>Owner's name</label>
+                    <input type="text" name="Oname" required><br>
+                </div>
+                <div class="form-group">
+                    <label>Owner's surname</label>
+                    <input type="text" name="Osurname" required><br>
+                </div>
+                <div class="form-group">
+                    <label>Contact's name</label>
+                    <input type="text" name="Contactname" required><br>
+                </div>
+                <div class="form-group">
+                    <label>Contact's surname</label>
+                    <input type="text" name="Contactsurname" required><br>
                 </div>
                 <div class="form-group">
                     <label>E-mail</label>
@@ -112,22 +135,30 @@
                     <input type="text" name ='phone' required>
                 </div>
                 <div class="form-group">
-                    <label>Birthday</label>
-                    <input type="date" name ='birthday' required>
+                    <label>Founding date</label>
+                    <input type="date" name ='fd' required>
                 </div>
-                <h3>Professional experience</h3>
                 <div class="form-group">
-                    <label>Phone</label>
-                    <input type="text" name ='phone' required>
+                    <label>Work field</label>
+                    <input type="text" name ='field' required>
                 </div>
-                <input type="submit" name="signUp2" id="signUp2" value="Sign-Up">
+                <h3>Account credentials</h3>
+                <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name ='username' required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name ='password' required>
+                    </div>
+                <input type="submit" name="signUp2" id="signUp2" value="Sign-Up" class="add-buttons">
             </form>
             </div>
 
             <li onclick="activateReqForm()">CONNECT</li>
             <div id="formReq">
                 <form method="post" action="">
-                    <h3>General information:</h3>
+                <h3>General information:</h3>
                     <div class="form-group">
                         <label>Name</label>
                         <input type="text" name ='name' required><br>
@@ -148,12 +179,21 @@
                         <label>Birthday</label>
                         <input type="date" name ='birthday' required>
                     </div>
-                    <h3>Professional information</h3>
+                    <h3>Account credentials:</h3>
                     <div class="form-group">
-                        <label>Phone</label>
-                        <input type="text" name ='phone' required>
+                        <label>Username</label>
+                        <input type="text" name ='username' required>
                     </div>
-                    <input type="submit" name="signUp3" id="signUp3" value="Sign-Up">
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" name ='password' required>
+                    </div>
+                    <h3>Professional information:</h3>
+                    <div class="form-group">
+                        <label>Website</label>
+                        <input type="text" name ='website'>
+                    </div>
+                    <input type="submit" name="signUp3" id="signUp3" value="Sign-Up" class="add-buttons">
                 </form>
                 </div>
 
