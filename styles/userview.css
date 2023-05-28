@@ -1,6 +1,42 @@
+@font-face {
+    font-family: titleFont;
+    src: url(../fonts/11.20___.TTF);
+}
+
+@font-face {
+    font-family: placeholders;
+    src: url(../fonts/LilGrotesk-Regular.otf);
+}
+
+@font-face {
+    font-family: buttons;
+    src: url(../fonts/LilGrotesk-Bold.otf);
+}
+
+@font-face{
+    font-family: roboto-bold;
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face{
+    font-family: right;
+    src: url(../fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: agrandir;
+    src: url(../fonts/Agrandir-Regular.otf);
+}
+
+@font-face {
+    font-family: libre; 
+    src: url(../fonts/LibreBaskerville-Regular.ttf);
+}
+
 body{
     padding: 0px;
     margin: 0px;
+    font-family: agrandir;
 }
 
 #menu{
@@ -47,12 +83,13 @@ body{
 }
 
 #feed li{
-    padding-left: 30%;
     display: flex;
+    margin-right: 10vw;
 }
 
 #feedlist{
-    margin-right: 30vw;
+    width: 50vw;
+    margin-left: 30vw;
     display: flex;
     list-style-type: none;
 }
