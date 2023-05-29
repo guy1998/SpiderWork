@@ -1,4 +1,4 @@
-*{
+* {
     padding: 0;
     margin: 0;
     text-decoration: none;
@@ -6,11 +6,11 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: sans-serif;
 }
 
-nav{
+nav {
     align-items: center;
     background: rgb(255, 255, 255);
     display: flex;
@@ -24,7 +24,7 @@ nav{
     margin-bottom: 4vh;
 }
 
-label.logo{
+label.logo {
     color: #555;
     font-size: 2vw;
     line-height: 80px;
@@ -32,18 +32,18 @@ label.logo{
     font-weight: bold;
 }
 
-nav ul{
+nav ul {
     float: right;
     margin-right: 20px;
 }
 
-nav ul li{
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 0.7vw;
 }
 
-nav ul li a{
+nav ul li a {
     color: #555;
     font-size: 17px;
     padding: 7px 13px;
@@ -51,17 +51,18 @@ nav ul li a{
     text-transform: uppercase;
 }
 
-a.active{
+a.active {
     color: white;
 }
 
-a.active,a.navItem:hover{
+a.active,
+a.navItem:hover {
     background: rgb(84, 110, 122);
-    transition: .5s;
+    transition: 0.5s;
     color: white;
 }
 
-.searchBar{
+.searchBar {
     align-items: center;
     background-color: rgb(236, 239, 241);
     border: none;
@@ -78,14 +79,14 @@ a.active,a.navItem:hover{
     font-size: 0.8vw;
 }
 
-.searchNav{
+.searchNav {
     align-items: flex-start;
     flex-direction: column;
     display: flex;
     justify-content: flex-start;
 }
 
-section{
+section {
     background-color: rgb(255, 255, 255);
     display: block;
     overflow-y: auto;
@@ -99,7 +100,7 @@ section{
     margin-bottom: 3vh;
 }
 
-.bigSearchDiv{
+.bigSearchDiv {
     will-change: transform;
     margin: 16px 0px 32px;
     align-items: flex-start;
@@ -108,7 +109,7 @@ section{
     justify-content: flex-start;
 }
 
-.miniSearchDiv{
+.miniSearchDiv {
     align-items: center;
     width: 100%;
     flex-direction: column;
@@ -116,7 +117,7 @@ section{
     justify-content: flex-start;
 }
 
-.jobListing{
+.jobListing {
     align-items: center;
     flex-direction: column;
     display: flex;
@@ -129,20 +130,20 @@ section{
     height: 20vh;
 }
 
-.divisionLogoAndInfo{
+.divisionLogoAndInfo {
     flex-direction: row;
     width: 100%;
-    align-items:flex-start;
+    align-items: flex-start;
     display: flex;
     justify-content: flex-start;
 }
 
-.jobLogo{
+.jobLogo {
     margin-right: 2vw;
     margin-left: 1vw;
 }
 
-.jobInfo{
+.jobInfo {
     gap: 8px;
     align-items: flex-start;
     flex-direction: column;
@@ -150,70 +151,69 @@ section{
     justify-content: flex-start;
 }
 
-.jobInfo h3{
+.jobInfo h3 {
     display: block;
     margin: 0px;
     color: rgb(38, 50, 56);
     font-size: 20px;
 }
 
-
-#page4{
+#page4 {
     margin-top: 0px;
-    border-top:1px solid black;
-    background-color:rgb(84, 110, 122);
+    border-top: 1px solid black;
+    background-color: rgb(84, 110, 122);
 }
 
-#generalFooter{
+#generalFooter {
     display: flex;
 }
 
-#generalFooter ul{
+#generalFooter ul {
     margin-left: 10vw;
     min-width: 15vw;
     list-style-type: none;
     font-family: placeholders;
 }
 
-#generalFooter li{
+#generalFooter li {
     margin-bottom: 3vh;
 }
 
-#generalFooter a{
+#generalFooter a {
     text-decoration: none;
     color: white;
 }
 
-#generalFooter h2{
+#generalFooter h2 {
     font-family: libre;
 }
 
-#generalFooter li{
+#generalFooter li {
     background-size: 2vw;
     background-repeat: no-repeat;
     background-position: left;
     color: white;
 }
 
-#address{
+#address {
     height: 5vh;
     padding-left: 3vw;
     background-image: url(../images/pin.png);
 }
 
-#tele{
+#tele {
     height: 5vh;
     padding-left: 3vw;
     background-image: url(../images/telephone.png);
 }
 
-#mail{
+#mail {
     height: 5vh;
     padding-left: 3vw;
     background-image: url(../images/email.png);
 }
 
-#social{
+#social {
     display: flex;
     border-bottom: 3px solid black;
     width: 95vw;
@@ -221,32 +221,32 @@ section{
     list-style-type: none;
 }
 
-#social li{
+#social li {
     margin-left: 2vw;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
-footer ul{
+footer ul {
     list-style-type: none;
     display: flex;
 }
 
-footer li{
+footer li {
     margin-left: 15vw;
 }
 
-footer a{
+footer a {
     text-decoration: none;
     color: white;
 }
 
-.profileImg{
+.profileImg {
     border-radius: 50%;
 }
 
-.mainPage{
+.mainPage {
     flex-direction: row;
     align-items: initial;
     background-color: rgb(255, 255, 255);
@@ -255,7 +255,7 @@ footer a{
     justify-content: flex-start;
 }
 
-.jobArticle{
+.jobArticle {
     position: relative;
     height: 100%;
     width: 45%;
@@ -266,7 +266,7 @@ footer a{
     justify-content: flex-start;
 }
 
-.applyLink{
+.applyLink {
     display: block;
     width: 50%;
     height: 5%;
@@ -281,12 +281,12 @@ footer a{
     margin-bottom: 3%;
 }
 
-.hoursAndSalary{
+.hoursAndSalary {
     flex-direction: row;
     display: flex;
 }
 
-.info{
+.info {
     align-items: center;
     align-self: center;
     background-color: rgba(236, 239, 241, 0.5);
@@ -303,6 +303,14 @@ footer a{
     margin-bottom: 10%;
 }
 
-.jobImg{
+.jobImg {
     height: 35%;
+}
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: white;
 }
