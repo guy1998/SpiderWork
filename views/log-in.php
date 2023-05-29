@@ -36,7 +36,7 @@ session_start();
 
             <li onclick="activateWorkerForm()">WORK</li>
             <div id="formWorker">
-                <form method="POST" onsubmit="alert('Hello')" action="" enctype="multipart/form-data">
+                <form method="POST" onsubmit="" action="../controller/user.php" enctype="multipart/form-data">
                     <h3>General information:</h3>
                     <div class="form-group">
                         <label>Name</label>
@@ -104,7 +104,7 @@ session_start();
 
             <li onclick="activateEmployeeForm()">EMPLOY</li>
             <div id="formEmp">
-            <form method="post" action="">
+            <form method="post" action="../controller/empSignUp.php">
                 <h3>General information:</h3>
                 <div class="form-group">
                     <label>Company's name</label>
@@ -157,7 +157,7 @@ session_start();
 
             <li onclick="activateReqForm()">CONNECT</li>
             <div id="formReq">
-                <form method="post" action="">
+                <form method="post" action="../controller/reqSignUp.php">
                 <h3>General information:</h3>
                     <div class="form-group">
                         <label>Name</label>
