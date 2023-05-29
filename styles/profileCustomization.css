@@ -1,0 +1,116 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-section {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.profile-details {
+  text-align: center;
+}
+
+.profile-photo {
+  width: 20vw;
+  height: 20vw;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 auto;
+}
+
+.full-name {
+  font-size: 4vw;
+  margin-top: 2vw;
+}
+
+.content-section {
+  flex-grow: 1;
+  display: flex;
+  padding: 2vw;
+  border-bottom: 2px solid #ccc;
+}
+
+.left-section {
+  flex-basis: 50%;
+}
+
+.right-section {
+  flex-basis: 50%;
+  padding-left: 2vw;
+}
+
+.section-heading {
+  font-size: 2vw;
+  margin-bottom: 2vw;
+}
+
+.form-group {
+  margin-bottom: 2vw;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 1vw;
+  font-size: 1.6vw;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.language,
+.privacy-settings {
+  margin-bottom: 2vw;
+}
+
+.language p,
+.privacy-settings p {
+  margin: 0;
+}
+
+.button-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vw;
+}
+
+button {
+  display: inline-block;
+  padding: 1vw 2vw;
+  font-size: 1.6vw;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: #4CAF50;
+  margin-right: 1vw;
+}
+
+.delete-account-button {
+  background-color: #FF0000;
+}
