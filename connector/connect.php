@@ -1,7 +1,7 @@
 <?php
 $dbName = 'SpiderWork';
 $user = 'root';
-$password = 'Aldrin/117';
+$password = '';
 
 function connect($dbname, $user, $password) {
     $connection = NULL;
