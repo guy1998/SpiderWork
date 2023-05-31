@@ -3,7 +3,8 @@ $dbName = 'SpiderWork';
 $user = 'root';
 $password = '';
 
-function connect($dbname, $user, $password) {
+function connect($dbname, $user, $password)
+{
     $connection = NULL;
     $dns = "mysql:host=localhost;dbname=$dbname;charset=utf8";
     try {
@@ -16,5 +17,6 @@ function connect($dbname, $user, $password) {
 
     return $connection;
 }
-$dbc= mysqli_connect('localhost',$user,$password,$dbName);
+
+$dbc = mysqli_connect('localhost', $user, $password, $dbName);
 return connect($dbName, $user, $password);
