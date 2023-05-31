@@ -18,5 +18,5 @@ function connect($dbname, $user, $password) {
     return $connection;
 }
 
-$dbc = mysqli_connect('localhost', $user, $password, $dbName)
+$dbc = mysqli_connect('localhost', $user, $password, $dbName);
 return connect($dbName, $user, $password);
