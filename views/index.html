@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderWork</title>
     <link rel="stylesheet" href="../styles/index.css" type="text/css">
+    <script>
+        function redirectToLoginPage() {
+            window.location.href = "log-in.php";
+        }
+    </script>
 </head>
 <body>
     <div id="page1">
@@ -15,7 +20,7 @@
                 <li class="options"><a href="">Jobs</a></li>
                 <li class="options"><a href="">Employers</a></li>
                 <li class="options"><a href="">Recruiters</a></li>
-                <li id="log-in"><button>Log In</button></li>
+                <li id="log-in"><button type="button" onclick="redirectToLoginPage()">Log In</button></li>
             </ul>
         </nav>
         <div id="bgImage">
