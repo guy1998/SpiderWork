@@ -8,7 +8,7 @@ include '../connector/connect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderWork</title>
-    <link rel="stylesheet" href="../styles/page.css" type="text/css">
+    <link rel="stylesheet" href="../styles/page.css?v=1.0" type="text/css">
 </head>
 
 <body>
@@ -66,7 +66,7 @@ include '../connector/connect.php';
                     </ul>
                 </div>
                 <div>
-                    <p class="info" id="description">#Job Description</p>
+                    <p class="info" id="description">Job Description</p>
                 </div>
             </article>
         </main>
