@@ -55,4 +55,4 @@ $_SESSION['userid'] = $result[0]['employerId'];
 
 echo $_SESSION['userid'];
 
-header("Location: ../views/employer.html");
+header("Location: ../views/employer.php");
