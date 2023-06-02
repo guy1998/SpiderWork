@@ -98,6 +98,50 @@ body{
     cursor: pointer;
 }
 
+#optionsMenu{
+    height: 0vh;
+    width: 10vw;
+    position: absolute;
+    left: 88vw;
+    top: 15vh; 
+    background-color: white;
+    transition: all ease-in-out 0.5s;
+    transition-delay: 0.3s;
+}
+
+#optionsMenu ul{
+    list-style-type: none;
+    display: none;
+}
+
+#optionsMenu li{
+    margin-left: -2.5vw;
+    padding: 1vh 0px 0px 1vw;
+    width: 7vw;
+}
+
+#optionsMenu{
+    --borderCustom: 0vw;
+}
+
+#optionsMenu::before{
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    width: 0;
+	height: 0;
+    top: -5vh;
+    left: 40%;
+    border-left: 1.5vh solid transparent;
+	border-right: 1.5vh solid transparent;
+	border-bottom: var(--borderCustom) solid white;
+    transition: all ease-in-out 0.5s;
+}
+
+#optionsMenu a{
+    text-decoration: none;
+}
+
 #feed li{
     display: flex;
     margin-right: 7vw;

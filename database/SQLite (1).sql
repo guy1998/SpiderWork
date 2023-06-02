@@ -33,7 +33,7 @@ CREATE TABLE Recruiter (
 );
 
 CREATE TABLE Employer (
-  employerId INT PRIMARY KEY,
+   employerId INT PRIMARY KEY AUTO_INCREMENT,
   contactName VARCHAR(100),
   contactSurname VARCHAR(100),
   companyName VARCHAR(100),

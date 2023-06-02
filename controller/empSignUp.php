@@ -53,4 +53,6 @@ try{
 $result = $statement3->fetchAll();
 $_SESSION['userid'] = $result[0]['employerId'];
 
-header("Location: ../views/userview.php");
+echo $_SESSION['userid'];
+
+header("Location: ../views/employer.html");

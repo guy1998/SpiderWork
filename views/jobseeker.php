@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+include "../controller/functions.php";
+$user = fetchUser($_SESSION['userid']);
+$seeker = fetchSeeker($_SESSION['userid']);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,17 +26,14 @@
     </ul>
     <ul id="sNp">
         <li><input type="text" placeholder="Search..."></li>
-        <li>
-            <button type="button" onclick="dropdownOptions()"></button>
-            <div id="optionsMenu">
-                <ul id="optionLinks">
-                    <li><a href="">My account</a></li>
-                    <li><a href="">Settings</a></li>
-                    <li><a href="">Log out</a></li>
-                </ul>
-            </div>
-        </li>
-        
+        <li><button type="button"></button></li>
+        <div id="optionsMenu">
+            <ul>
+                <li><a href="">My account</a></li>
+                <li><a href="">Settings</a></li>
+                <li><a href="">Log out</a></li>
+            </ul>
+        </div>
 
     </ul>
     </nav>
@@ -36,18 +42,18 @@
     <nav id="feed">
     <ul id="feedlist"> 
         <li><a href="#Posts">Posts</a></li>
-        <li><a href="#Likes">Likes</a></li>
+        <li><a href="#Likes">Notifications</a></li>
         <li><a href="#Media">Media</a></li>
     </ul>
     </nav>
 
     <div id="profile">
         <img src="../images/bg image.jpeg" alt="image" width="100" height="100" id="profilePic">
-        <p>name surname</p>
-        <p>username</p>
-        <p>job</p>
+        <p>Name:<?php echo $user['name']; ?>  Surname:<?php echo $user['surname']; ?></p>
+        <p>Username:<?php echo $user['username']; ?></p>
+        <p>Job: <?php echo $seeker['field']; ?></p>
         <p> <img  src="../images/pin.png" width="20" height="20"> Adress</p>
-        <p> <img src="../images/email.png" width="20" height="20"> Email</p>
+        <p> <img src="../images/email.png" width="20" height="20"> Email: <?php echo $user['email']; ?></p>
     </div>
 
     <div id="suggested"> 
@@ -71,6 +77,6 @@
             </div>
         </div>
     </div>
-    <script src="../scripts/userview.js"></script>
+
 </body>
 </html>
