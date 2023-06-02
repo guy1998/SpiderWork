@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+include "../controller/functions.php";
+$current_emp = fetchEmployer($_SESSION['userid'])
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +20,7 @@
     <nav id="menu">
     <ul id="options">
         <li><a href="#home">Home</a></li>
-        <li><a href="#jobs">Employees</a></li>
-        <li><a href="#employers">Employers</a></li>
+        <li><a href="#employers">Employees</a></li>
     </ul>
     <ul id="sNp">
         <li><input type="text" placeholder="Search..."></li>
@@ -32,19 +39,20 @@
     
     <nav id="feed">
     <ul id="feedlist"> 
-        <li><a href="#Posts">Posts</a></li>
-        <li><a href="#Likes">Likes</a></li>
+        <li><a href="#Posts">Your listings</a></li>
+        <li><a href="#Likes">Notifications</a></li>
         <li><a href="#Media">Media</a></li>
     </ul>
     </nav>
 
     <div id="profile">
         <img src="../images/bg image.jpeg" alt="image" width="100" height="100" id="profilePic">
-        <p>name surname</p>
-        <p>username</p>
-        <p>job</p>
+        <p><?php echo $current_emp['companyName']; ?></p>
+        <p>Name: <?php echo $current_emp['ownerName']; ?>  Surname: <?php echo $current_emp['ownerSurname']; ?></p>
+        <p>Username: <?php echo $current_emp['username']; ?></p>
+        <p>Field: <?php echo $current_emp['field']; ?></p>
         <p> <img  src="../images/pin.png" width="20" height="20"> Adress</p>
-        <p> <img src="../images/email.png" width="20" height="20"> Email</p>
+        <p> <img src="../images/email.png" width="20" height="20"> Email: <?php echo $current_emp['email']; ?></p>
     </div>
 
     <div id="suggested"> 
