@@ -85,4 +85,4 @@ try{
 $result = $statement3->fetchAll();
 $_SESSION['userid'] = $result[0]['userid'];
 
-header("Location: ../views/userview.php");
+header("Location: ../views/jobseeker.php");
