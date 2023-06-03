@@ -1,0 +1,269 @@
+@font-face {
+    font-family: titleFont;
+    src: url(../fonts/11.20___.TTF);
+}
+
+@font-face {
+    font-family: placeholders;
+    src: url(../fonts/LilGrotesk-Regular.otf);
+}
+
+@font-face {
+    font-family: buttons;
+    src: url(../fonts/LilGrotesk-Bold.otf);
+}
+
+@font-face{
+    font-family: roboto-bold;
+    src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face{
+    font-family: right;
+    src: url(../fonts/Righteous-Regular.ttf);
+}
+
+@font-face {
+    font-family: agrandir;
+    src: url(../fonts/Agrandir-Regular.otf);
+}
+
+@font-face {
+    font-family: libre; 
+    src: url(../fonts/LibreBaskerville-Regular.ttf);
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    font-family: agrandir;
+}
+
+#menu{
+    background-image: url("../images/userviewBg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    width: 100vw;
+    display: flex;
+}
+
+#menu li{
+    margin-right: 3vw;
+}
+
+#options{
+    margin-right: 43vw;
+    display: flex;
+    list-style-type: none;
+    margin-top: 4vh;
+}
+
+#options a{
+    text-decoration: none;
+    color: white;
+}
+
+#options a:hover{
+    border-bottom: 1px solid orange;
+}
+
+#sNp{
+    display: flex;
+    list-style-type: none;
+}
+
+#sNp input[type="text"]{
+    border-radius: 15px;
+    width: 20vw;
+    height: 4vh;
+    border: none;
+    margin-top: 1vh;
+    padding-left: 0.5vw;
+}
+
+#sNp button{
+    border-radius: 50%;
+    width: 2vw;
+    height: 2vw;
+    background-image: url("../images/bg\ image.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
+    margin-top: 1.3vh;
+}
+
+#sNp button:hover{
+    cursor: pointer;
+}
+
+#optionsMenu{
+    height: 0vh;
+    width: 10vw;
+    position: absolute;
+    left: 83vw;
+    top: 10vh; 
+    background-color: white;
+    transition: all ease-in-out 0.5s;
+    transition-delay: 0.3s;
+}
+
+#optionsMenu ul{
+    list-style-type: none;
+    display: none;
+}
+
+#optionsMenu li{
+    margin-left: -2.5vw;
+    padding: 1vh 0px 0px 1vw;
+    width: 7vw;
+}
+
+#optionsMenu{
+    --borderCustom: 0vw;
+}
+
+#optionsMenu::before{
+    content: "";
+    background-color: transparent;
+    position: absolute;
+    width: 0;
+	height: 0;
+    top: -3vh;
+    left: 40%;
+    border-left: 1.5vh solid transparent;
+	border-right: 1.5vh solid transparent;
+	border-bottom: var(--borderCustom) solid white;
+    transition: all ease-in-out 0.5s;
+}
+
+#optionsMenu a{
+    text-decoration: none;
+}
+
+#feed li{
+    display: flex;
+    margin-right: 7vw;
+}
+
+#feedlist{
+    width: 50vw;
+    margin-left: 25vw;
+    display: flex;
+    list-style-type: none;
+}
+
+#feedlist a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+#feedlist a:hover{
+    border-bottom: 2px solid lightblue;
+}
+
+#profile{
+    position: absolute;
+    z-index: 1;
+    top: 20%;
+    left: 3%;
+    width: 20vw;
+    height: 70vh;
+    border-radius: 7%;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
+}
+
+#profile p{
+    margin-left: 10%;
+}
+
+#profilePic{
+    margin: 1vh 0px 1vh 6vw;
+    border-radius: 50%;
+}
+
+#suggested {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 75%;
+    width: 20vw;
+    height: 55vh;
+    border-radius: 7%;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
+}
+
+#suggested p{
+    margin-left: 10%;
+}
+
+#suggested img{
+    border-radius: 50%;
+    margin-right: 1vw;
+}
+
+#listingContainer{
+    position: absolute;
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 24%;
+    width: 50vw;
+    height: 50vh;
+    overflow: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* border: 2px solid red; */
+}
+
+#posts {
+    /* position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 25%; */
+    width: 45vw;
+    height: 20vh;
+    border-radius: 10%;
+    background-color: beige;
+    display: flex;
+    background-color: white;
+    box-shadow: 0px 5px 20px 1px gray;
+    margin-bottom: 5vh;
+    margin-top: 2vh;
+    margin-left: 3vw;
+}
+
+#profImage{
+    position: relative;
+    top: 10%;
+    left: 4%;
+    background-image: url("../images/bg\ image.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 2vw;
+}
+
+#texts{
+    position: relative;
+    /* The trickster */
+    top: -3vh;
+    left: 0.5vw;
+}
+
+#texts img{
+    margin-right: 0.7vw;
+}
+
+#setting{
+    position: relative;
+     top: 0.5vh;
+    left: 35vw;
+}
