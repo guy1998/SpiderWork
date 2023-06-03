@@ -7,7 +7,6 @@ const activateSignUp = function(){
     const signBtn = document.getElementById('directSign');
     const email = document.getElementById('contactEmail');
     const phone = document.getElementById('contactNumber');
-    const back = document.getElementById('back');
 
     email.classList.add('hidden');
     phone.classList.add('hidden');
@@ -15,11 +14,11 @@ const activateSignUp = function(){
     slogan.classList.add('hidden');
     socials.classList.add('hidden');
     div.classList.remove('waiting')
+    setTimeout(() => {
+        div.style.left = "48vw";
+    }, 500);
     signBtn.classList.add('hidden');
     document.body.style.backgroundImage = 'url("../images/pexels-rūdolfs-klintsons-7120352.jpg")';
-    setTimeout(() => {
-        back.classList.remove('waiting');
-    }, 500);
 }
 
 const activateWorkerForm = function(){

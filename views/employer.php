@@ -2,6 +2,8 @@
 
 session_start();
 include "../controller/functions.php";
+include_once "../connector/connect.php";
+$conn = connect('spiderwork', 'root', 'Aldrin/117');
 $current_emp = fetchEmployer($_SESSION['userid'])
 
 ?>
@@ -13,7 +15,7 @@ $current_emp = fetchEmployer($_SESSION['userid'])
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles/userview.css" />
+    <link rel="stylesheet" href="../styles/employerView.css" />
 </head>
 <body>
 
@@ -24,9 +26,9 @@ $current_emp = fetchEmployer($_SESSION['userid'])
     </ul>
     <ul id="sNp">
         <li><input type="text" placeholder="Search..."></li>
-        <li><button type="button"></button></li>
+        <li><button type="button" onclick="dropdownOptions()"></button></li>
         <div id="optionsMenu">
-            <ul>
+            <ul id="optionLinks">
                 <li><a href="">My account</a></li>
                 <li><a href="">Settings</a></li>
                 <li><a href="">Log out</a></li>
@@ -41,12 +43,11 @@ $current_emp = fetchEmployer($_SESSION['userid'])
     <ul id="feedlist"> 
         <li><a href="#Posts">Your listings</a></li>
         <li><a href="#Likes">Notifications</a></li>
-        <li><a href="#Media">Media</a></li>
     </ul>
     </nav>
 
     <div id="profile">
-        <img src="../images/bg image.jpeg" alt="image" width="100" height="100" id="profilePic">
+        <img src="<?php echo $current_emp['profilepic']; ?>" alt="image" width="100" height="100" id="profilePic">
         <p><?php echo $current_emp['companyName']; ?></p>
         <p>Name: <?php echo $current_emp['ownerName']; ?>  Surname: <?php echo $current_emp['ownerSurname']; ?></p>
         <p>Username: <?php echo $current_emp['username']; ?></p>
@@ -63,19 +64,39 @@ $current_emp = fetchEmployer($_SESSION['userid'])
         <p> <img src="../images/bg image.jpeg" width="30" height="30">User3</p>
     </div>
 
+    <div id="listingContainer">
+    <?php 
+    $sql = "SELECT * FROM joblisting WHERE employerid = :employerid";
+    $statement = $conn->prepare($sql);
+    try{
+        $statement->execute(['employerid' => $_SESSION['userid']]);
+    }catch(PDOException $error){
+        var_dump($error);
+    }
+    $joblistings = $statement->fetchAll();
+    $i = 0;
+    while ($i < count($joblistings)){ ?>
     <div id="posts">
         <div id="profImage">
         </div>
         <div>
             <img id="setting" src="../images/menu.png" width="15" height="15">
             <div id="texts">
-            <p><strong>User name</strong></p>
-            <p>This is sth that the user posted</p>
+            <p><strong><?php echo $current_emp['companyName']; ?></strong></p>
+            <p><?php echo $joblistings[$i]['job_title']; ?></p>
+            <p><?php echo $joblistings[$i]['job_description']; ?></p>
             <img src="../images/heart.png" width="15" height="15">
             <img src="../images/chat-bubble.png" width="15" height="15">
             </div>
         </div>
     </div>
+    <?php
+       $i++; }
+    ?>
+    </div>
+    <script src="../scripts/userview.js"></script>
+    <script>
 
+    </script>
 </body>
 </html>
