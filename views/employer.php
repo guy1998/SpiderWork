@@ -29,9 +29,9 @@ $current_emp = fetchEmployer($_SESSION['userid'])
         <li><button type="button" onclick="dropdownOptions()"></button></li>
         <div id="optionsMenu">
             <ul id="optionLinks">
-                <li><a href="">My account</a></li>
+                <li><a href="profileCustomization.html">My account</a></li>
                 <li><a href="">Settings</a></li>
-                <li><a href="">Log out</a></li>
+                <li><a href="../controller/logOutController.php">Log out</a></li>
             </ul>
         </div>
 
@@ -58,10 +58,24 @@ $current_emp = fetchEmployer($_SESSION['userid'])
 
     <div id="suggested"> 
         <p style="font-weight: bold;"> Suggested for you</p>
-        <p> <img src="../images/bg image.jpeg" width="30" height="30">User</p>
-        <p> <img src="../images/bg image.jpeg" width="30" height="30">User1</p>
-        <p> <img src="../images/bg image.jpeg" width="30" height="30">User2</p>
-        <p> <img src="../images/bg image.jpeg" width="30" height="30">User3</p>
+        <?php
+        $getSeeker = "SELECT * FROM person WHERE userid IN (SELECT userid FROM jobseeker WHERE field = :field)";
+        $statement2 = $conn->prepare($getSeeker);
+        try{
+            $statement2->execute(['field'=>$current_emp['field']]);
+        }catch(PDOException $error){
+            var_dump($error);
+        }
+        $seekers = $statement2->fetchAll();
+        $j = 0;
+        while($j < count($seekers)){ ?>
+        <p> <img src=<?php echo $seekers[$j]['profilepic'] ?> width="30" height="30"><?php echo $seekers[$j]['name']." ".$seekers[$j]['surname']; ?></p>
+        <?php $j++;
+        } 
+    ?>
+    <?php if($j == 0): ?>
+        <h5 style="margin: 15vh 0 0 1.5vw;">Sorry nothing to suggest right now</h5>
+    <?php endif; ?>
     </div>
 
     <div id="listingContainer">
@@ -93,6 +107,9 @@ $current_emp = fetchEmployer($_SESSION['userid'])
     <?php
        $i++; }
     ?>
+    <?php if($i == 0): ?>
+        <h3 id="nothingYet">No listings yet</h3>
+    <?php endif; ?>
     </div>
     <script src="../scripts/userview.js"></script>
     <script>

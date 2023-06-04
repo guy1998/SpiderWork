@@ -195,6 +195,9 @@ body{
     border-radius: 7%;
     background-color: white;
     box-shadow: 0px 5px 20px 1px gray;
+    overflow: auto;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
 }
 
 #suggested p{
@@ -266,4 +269,10 @@ body{
     position: relative;
      top: 0.5vh;
     left: 35vw;
+}
+
+#nothingYet{
+    position: absolute;
+    left: 45%;
+    top: 45%;
 }

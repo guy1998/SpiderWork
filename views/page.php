@@ -1,5 +1,9 @@
 <?php
-include '../connector/connect.php';
+
+session_start();
+include_once '../connector/connect.php';
+
+
 ?>
 <html lang="en">
 
@@ -13,6 +17,19 @@ include '../connector/connect.php';
 
 <body>
     <div>
+        <?php if(isset($_SESSION['userid'])): ?>
+        <nav>
+            <label class="logo">SpiderWork</label>
+            <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
+            <ul>
+                <li><a class="navItem" href="#">Job Search</a></li>
+                <li><a class="navItem" href="#">Career Guide</a></li>
+                <li>|</li>
+                <li><a class="navItem" href="#">For Employers</a></li>
+            </ul>
+        </nav>
+        <?php endif; ?>
+        <?php if(!isset($_SESSION['userid'])): ?>
         <nav>
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
@@ -25,6 +42,7 @@ include '../connector/connect.php';
                 <li><a class="navItem" href="#">For Employers</a></li>
             </ul>
         </nav>
+        <?php endif; ?>
     </div>
     <div class="mainPage">
         <section>
