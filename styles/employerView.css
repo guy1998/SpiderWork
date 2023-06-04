@@ -267,3 +267,9 @@ body{
      top: 0.5vh;
     left: 35vw;
 }
+
+#nothingYet{
+    position: absolute;
+    left: 45%;
+    top: 45%;
+}

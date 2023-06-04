@@ -28,7 +28,7 @@ try{
         'companyName'=>$comp_name,
         'ownerName'=>$owner_name,
         'ownerSurname'=>$owner_surname,
-        'field'=>$fd,
+        'field'=>$field,
         'email'=>$email,
         'password'=>$password,
         'username'=>$username,
