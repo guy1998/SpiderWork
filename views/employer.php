@@ -69,7 +69,7 @@ $current_emp = fetchEmployer($_SESSION['userid'])
         $seekers = $statement2->fetchAll();
         $j = 0;
         while($j < count($seekers)){ ?>
-        <p> <img src=<?php echo $seekers['profilepic'] ?> width="30" height="30"><?php echo $seekers[$j]['name']." ".$seekers[$j]['surname']; ?></p>
+        <p> <img src=<?php echo $seekers[$j]['profilepic'] ?> width="30" height="30"><?php echo $seekers[$j]['name']." ".$seekers[$j]['surname']; ?></p>
         <?php $j++;
         } 
     ?>

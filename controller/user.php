@@ -41,7 +41,7 @@ if (empty($password)) {
     echo "Password is empty.";
 }
 
-$sql = "INSERT INTO person (name, surname, email, username, password, birthday, profilepic) VALUES (:name, :surname, :email, :username, :password, :birthday, '..images/user.png')";
+$sql = "INSERT INTO person (name, surname, email, username, password, birthday, profilepic) VALUES (:name, :surname, :email, :username, :password, :birthday, '../images/defaultUser.png')";
 $experience = "Employer: ".$_POST['empName']."\nWorked for: ".$_POST['years']." years\nDescription: ".$_POST['jobDesc'];
 $education = "University: ".$_POST['school'];
 
@@ -66,11 +66,9 @@ try {
         'education' => $education
     ]);
 
-    // Handle success scenario, such as redirecting to a success page
 
 } catch (PDOException $error) {
     var_dump($error);
-    // Handle database error, such as redirecting to an error page
 }
 
 $sql3 = "SELECT userid FROM person WHERE username = :username";
@@ -79,7 +77,6 @@ try{
     $statement3->execute(['username' => $username]);
 }catch (PDOException $error) {
     var_dump($error);
-    // Handle database error, such as redirecting to an error page
 }
 
 $result = $statement3->fetchAll();
