@@ -3,12 +3,12 @@
 include "../connector/connect.php";
 $dbName = 'spiderwork';
 $user = 'root';
-$password = 'Aldrin/117';
+$password = '';
 
 function fetchUser($userid){
 
     $sql = "SELECT * FROM person WHERE userid = :userid";
-    $connection = connect('spiderwork', 'root', 'Aldrin/117');
+    $connection = connect('spiderwork', 'root', '');
 
     $statement = $connection->prepare($sql);
     try{
@@ -23,7 +23,7 @@ function fetchUser($userid){
 
 function fetchSeeker($userid){
     $sql = "SELECT * FROM jobseeker WHERE userid = :userid";
-    $connection = connect('spiderwork', 'root', 'Aldrin/117');
+    $connection = connect('spiderwork', 'root', '');
 
     $statement = $connection->prepare($sql);
     try{
@@ -38,7 +38,7 @@ function fetchSeeker($userid){
 
 function fetchRec($userid){
     $sql = "SELECT * FROM recruiter WHERE userid = :userid";
-    $connection = connect('spiderwork', 'root', 'Aldrin/117');
+    $connection = connect('spiderwork', 'root', '');
 
     $statement = $connection->prepare($sql);
     try{

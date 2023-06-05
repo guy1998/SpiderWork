@@ -16,9 +16,9 @@ const activateSignUp = function(){
     div.classList.remove('waiting')
     setTimeout(() => {
         div.style.left = "48vw";
-    }, 500);
+    }, 200);
     signBtn.classList.add('hidden');
-    document.body.style.backgroundImage = 'url("../images/pexels-rūdolfs-klintsons-7120352.jpg")';
+    //document.body.style.backgroundImage = 'url("../images/pexels-rūdolfs-klintsons-7120352.jpg")';
 }
 
 const activateWorkerForm = function(){
