@@ -22,7 +22,7 @@ session_start();
         <li><img src="../images/twitter.png" onclick="" width="20px" height="20px"></li>
         <li><img src="../images/instagram.png" onclick="" width="20px" height="20px"></li>
     </ul>
-    <form id="login" class ="">
+    <form id="login" method="POST" action="../controller/loginControl.php" class ="">
         <h1>SpiderWork</h1>
         <input type="text" required placeholder="username" name="username"><br>
         <input type = "password" required placeholder="password" name="password"><br>
