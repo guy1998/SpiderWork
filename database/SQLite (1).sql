@@ -66,7 +66,8 @@ CREATE TABLE JobListing (
   FOREIGN KEY (employerid) REFERENCES Employer (employerId)
 );
 
-CREATE TABLE application (
+CREATE TABLE application_response (
+  listing_id INT,
   userid INT,
   employerid INT,
   listing_id INT,
