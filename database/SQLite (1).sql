@@ -67,7 +67,7 @@ CREATE TABLE JobListing (
 );
 
 CREATE TABLE application_response (
-  listing_id INT
+  listing_id INT,
   userid INT,
   employerId INT,
   response VARCHAR(10),
