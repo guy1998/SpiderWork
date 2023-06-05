@@ -76,3 +76,14 @@ CREATE TABLE application_response (
   FOREIGN KEY (employerid) REFERENCES employer(employerid),
   FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
 );
+
+CREATE TABLE application (
+  userid INT,
+  employerid INT,
+  listing_id INT,
+  application_date DATE,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+);
+
