@@ -22,10 +22,10 @@ session_start();
         <li><img src="../images/twitter.png" onclick="" width="20px" height="20px"></li>
         <li><img src="../images/instagram.png" onclick="" width="20px" height="20px"></li>
     </ul>
-    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm()" class ="">
+    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm();" class ="">
         <h1>SpiderWork</h1>
-        <input type="text" required placeholder="username" name="username"><br>
-        <input type = "password" required placeholder="password" name="password"><br>
+        <input type="text"  placeholder="username" name="username"><br>
+        <input type = "password"  placeholder="password" name="password"><br>
         <input type="submit" id="submitButton" value="Log-In" autofocus>
     </form>
     <button id="directSign" onclick="activateSignUp()">Sign-Up</button>
@@ -104,7 +104,7 @@ session_start();
 
             <li onclick="activateEmployeeForm()">EMPLOY</li>
             <div id="formEmp">
-            <form method="post" action="../controller/empSignUp.php">
+            <form method="post" onsubmit="validateEmployer()" action="../controller/empSignUp.php" name="formemp">
                 <h3>General information:</h3>
                 <div class="form-group">
                     <label>Company's name</label>
@@ -184,7 +184,7 @@ session_start();
                         <label>Username</label>
                         <input type="text" name ='username' required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="pass">
                         <label>Password</label>
                         <input type="password" name ='password' required>
                     </div>
@@ -201,4 +201,5 @@ session_start();
     </div>
     <script src="../scripts/log-in.js"></script>
     <script src="../scripts/loginValidate.js"></script>
+    <script src="../scripts/signUpValidate.js"></script>
 </body>
