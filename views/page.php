@@ -2,6 +2,7 @@
 
 session_start();
 include_once '../connector/connect.php';
+$conn = connect('spiderwork', 'root', '');
 
 
 ?>
@@ -75,7 +76,7 @@ include_once '../connector/connect.php';
         <main>
             <article class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
-                <a class="applyLink" href="#">Apply Now</a>
+                <button class="applyLink"><a href="../controller/application.php">Apply Now</a></button>
                 <img class="jobImg" src="../images/team.png" alt="profile">
                 <div>
                     <ul class="hoursAndSalary">
@@ -145,6 +146,19 @@ include_once '../connector/connect.php';
 
             const job = jobListings.find(item => item.listing_id === id);
             if (job) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/set_session.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                xhr.send('listing_id=' + id); 
                 document.getElementById("jobTitle").innerText = job.job_title;
                 document.getElementById("deadline").innerText = job.application_deadline;
                 document.getElementById("salary").innerText = job.salary;
