@@ -13,51 +13,48 @@ $query_if_employer = "SELECT * FROM employer WHERE username=:username";
 $statement1 = $connect->prepare($query);
 $statement2 = $connect->prepare($query_if_employer);
 
-try{
-    $statement1->execute(['username'=>$username]);
-    $statement2->execute(['username'=>$username]);
-}catch(PDOException $error){
+try {
+    $statement1->execute(['username' => $username]);
+    $statement2->execute(['username' => $username]);
+} catch (PDOException $error) {
     var_dump($error);
 }
 
 $log_in_errors = [];
 $person = $statement1->fetch();
 $emp = $statement2->fetch();
-if($person){
+if ($person) {
     echo "Hello person";
-    if($person['password'] == $password){
+    if ($person['password'] == $password) {
         $_SESSION['userid'] = $person['userid'];
         $seeker_query = "SELECT userid FROM jobseeker WHERE userid=:userid";
         $statement3 = $connect->prepare($seeker_query);
 
-        try{
+        try {
 
-            $statement3->execute(['userid'=>$_SESSION['userid']]);
-
-        }catch(PDOException $error){
+            $statement3->execute(['userid' => $_SESSION['userid']]);
+        } catch (PDOException $error) {
             var_dump($error);
         }
 
         $check = $statement3->fetch();
 
-        if($check){
-        header("Location: ../views/jobseeker.php");
-        }else{
-        header("Location: ../views/recruiter.php");
+        if ($check) {
+            header("Location: ../views/jobseeker.php");
+        } else {
+            header("Location: ../views/recruiter.php");
         }
-
-    }else{
+    } else {
         $log_in_errors['password'] = "Wrong password";
     }
-}else if ($emp){
+} else if ($emp) {
     echo "Hello employer";
-    if($emp['password'] == $password){
+    if ($emp['password'] == $password) {
         $_SESSION['userid'] = $emp['employerId'];
         header("Location: ../views/employer.php");
-    }else{
+    } else {
         $log_in_errors['password'] = "Wrong password";
     }
-}else{
+} else {
     header("Location: ../views/log-in.php");
 }
-
