@@ -22,11 +22,7 @@ session_start();
         <li><img src="../images/twitter.png" onclick="" width="20px" height="20px"></li>
         <li><img src="../images/instagram.png" onclick="" width="20px" height="20px"></li>
     </ul>
-<<<<<<< HEAD
-    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm()" class ="">
-=======
     <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm();" class ="">
->>>>>>> 170d3aea3357da3a2ede8aeb325bbc370146adc4
         <h1>SpiderWork</h1>
         <input type="text"  placeholder="username" name="username"><br>
         <input type = "password"  placeholder="password" name="password"><br>
@@ -39,11 +35,7 @@ session_start();
         <ul id="types">
             <li onclick="activateWorkerForm()">WORK</li>
             <div id="formWorker">
-<<<<<<< HEAD
-                <form method="POST" onsubmit="validateWorker();" action="../controller/user.php" enctype="multipart/form-data" name="formWork">
-=======
                 <form method="POST" name = "formwork" onsubmit="return validateWorker()" action="../controller/user.php" enctype="multipart/form-data">
->>>>>>> 170d3aea3357da3a2ede8aeb325bbc370146adc4
                     <h3>General information:</h3>
                     <div class="form-group workForm">
                         <label>Name</label>
@@ -112,11 +104,7 @@ session_start();
 
             <li onclick="activateEmployeeForm()">EMPLOY</li>
             <div id="formEmp">
-<<<<<<< HEAD
-            <form method="post" action="../controller/empSignUp.php" name="formemp">
-=======
             <form method="post" onsubmit="return validateEmployer()" action="../controller/empSignUp.php" name="formemp">
->>>>>>> 170d3aea3357da3a2ede8aeb325bbc370146adc4
                 <h3>General information:</h3>
                 <div class="form-group empForm">
                     <label>Company's name</label>
@@ -170,7 +158,7 @@ session_start();
 
             <li onclick="activateReqForm()">CONNECT</li>
             <div id="formReq">
-                <form method="post" action="../controller/reqSignUp.php" name="formreq">
+                <form method="post" action="../controller/reqSignUp.php">
                 <h3>General information:</h3>
                     <div class="form-group">
                         <label>Name</label>
@@ -215,8 +203,5 @@ session_start();
     </div>
     <script src="../scripts/log-in.js"></script>
     <script src="../scripts/loginValidate.js"></script>
-<<<<<<< HEAD
-=======
     <script src="../scripts/signUpValidate.js"></script>
->>>>>>> 170d3aea3357da3a2ede8aeb325bbc370146adc4
 </body>
