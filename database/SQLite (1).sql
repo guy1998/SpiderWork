@@ -67,11 +67,23 @@ CREATE TABLE JobListing (
 );
 
 CREATE TABLE application_response (
-  listing_id INT
+  listing_id INT,
   userid INT,
-  employerId INT,
-  response VARCHAR(10),
-  FOREIGN KEY (employerId) REFERENCES Employer (employerId),
-  FOREIGN KEY (userid) REFERENCES person (userid),
-  FOREIGN KEY (listing_id) REFERENCES JobListing (listing_id)
+  employerid INT,
+  listing_id INT,
+  application_date DATE,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
 );
+
+CREATE TABLE application (
+  userid INT,
+  employerid INT,
+  listing_id INT,
+  application_date DATE,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+);
+

@@ -200,15 +200,6 @@ body{
     scrollbar-width: none;
 }
 
-#suggested p{
-    margin-left: 10%;
-}
-
-#suggested img{
-    border-radius: 50%;
-    margin-right: 1vw;
-}
-
 #listingContainer{
     position: absolute;
     position: absolute;
@@ -275,4 +266,32 @@ body{
     position: absolute;
     left: 45%;
     top: 45%;
+}
+
+.eachUser{
+    display: flex;
+  align-items: center;
+  margin: 5px;
+  justify-content: space-between;
+}
+
+.eachUser img{
+    margin-left: 2vw;
+}
+
+
+.eachUser button{
+    background-color: purple;
+    color: white;
+    border: none;
+    width: 4vw;
+    height: 4vh;
+    margin-right: 2vw;
+    border-radius: 10px;
+    font-family: buttons;
+}
+
+.eachUser button:hover{
+    background-color: darkorchid;
+    cursor: pointer;
 }
