@@ -281,7 +281,6 @@ section label {
                     <div class="button">
                         <input type="submit" class="listingBtn" value="Add New Listings">
                     </div>
-
                 </form>
                 <?php
                 $sql = "SELECT * FROM joblisting WHERE employerid = :employerid";
@@ -317,7 +316,51 @@ section label {
                 <?php endif; ?>
             </div>
             <div class="content content-2">
-
+                    <?php 
+                        $getAppQuery = "SELECT * FROM application WHERE employerid = :employerid";
+                        $appStatement = $conn->prepare($getAppQuery);
+                        try{
+                            $appStatement->execute(['employerid'=>$_SESSION['userid']]);
+                        }
+                        catch(PDOException $error){
+                            var_dump($error);
+                        }
+                        $applications = $appStatement->fetchAll();
+                        $k = 0;
+                        while($k < count($applications)){
+                    ?>
+                        <div id="posts program" class="select">
+                        <div id="profImage">
+                        </div>
+                        <div>
+                            <?php 
+                                $applicantSql = "SELECT * FROM person WHERE userid = :userid";
+                                $joblistingsSql = "SELECT * FROM joblisting WHERE listing_id = :listing_id";
+                                $applicantStatement = $conn->prepare($applicantSql);
+                                $joblistingsStatement = $conn->prepare($joblistingsSql);
+                                try{
+                                    $applicantStatement->execute(['userid'=>$applications[$k]['userid']]);
+                                    $joblistingsStatement->execute(['listing_id'=>$applications[$k]['listing_id']]);
+                                }catch(PDOException $error){
+                                    var_dump($error);
+                                }
+                                $current_applicant = $applicantStatement->fetch();
+                                $current_position = $joblistingsStatement->fetch();
+                            ?>
+                            <img id="setting" src="../images/menu.png" width="15" height="15">
+                            <div id="texts">
+                                <p><strong><?php echo $current_applicant['name']." ".$current_applicant['surname']; ?></strong></p>
+                                <p>Applied for the position of<?php echo " ".$current_position['job_title']; ?></p>
+                                <p>Date of application:<?php echo " ".$applications[$k]['application_date']; ?></p>
+                                <img src="../images/heart.png" width="15" height="15">
+                                <img src="../images/chat-bubble.png" width="15" height="15">
+                            </div>
+                        </div>
+                        <?php 
+                            $k++;
+                        }
+                        ?>
+                    </div>                    
             </div>
         </section>
     </div>

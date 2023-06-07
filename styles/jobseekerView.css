@@ -295,3 +295,192 @@ body{
     background-color: darkorchid;
     cursor: pointer;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+::selection {
+    background: rgba(23, 162, 184, 0.3);
+}
+
+.wrapper {
+    max-width: 600px;
+    max-height: 500px;
+    width: 100%;
+    margin: 10px auto;
+    padding: 0px 50px 30px 30px;
+    border-radius: 5px;
+    overflow: auto;
+    background: #f4eeff;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper header {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.wrapper nav {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper nav label {
+    display: block;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: #424874;
+    font-size: 17px;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#bachelor:checked~nav label.bachelor,
+#master:checked~nav label.master {
+    color: #fff;
+}
+
+#bachelor:not(:checked)~nav label.bachelor,
+#master:not(:checked)~nav label.master {
+    background: #a6b1e1;
+}
+
+nav label i {
+    padding-right: 7px;
+}
+
+nav .slider {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    border-radius: 5px;
+    background: #424874;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+#master:checked~nav .slider {
+    left: 50%;
+}
+
+section .content {
+    display: none;
+    background: #f4eeff;
+    padding-top: 15px;
+}
+
+#bachelor:checked~section .content-1,
+#master:checked~section .content-2 {
+    display: block;
+}
+
+section .content p {
+    text-align: justify;
+}
+
+section label {
+    font-weight: 600;
+}
+
+.logo img {
+    margin-top: 10px;
+    max-width: 100px;
+    max-height: 50px;
+    float: right;
+}
+
+.select {
+    padding: 8px 12px;
+    color: #333333;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% - 20px);
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-repeat: no-repeat;
+    background-size: 10px;
+    padding-right: 30px;
+    margin-bottom: 10px;
+    font-family: Poppins;
+    font-weight: 600;
+}
+
+.select option {
+    background: #ffffff;
+    font-family: Poppins;
+    font-weight: bold;
+}
+
+.select:focus,
+.select:hover {
+    outline: none;
+    border: 2px solid #424874;
+}
+
+.title {
+    padding-bottom: 10px;
+}
+
+.submit {
+    padding: 5px 15px;
+    background: linear-gradient(90deg, #424874, #28d1ce);
+    color: #fff;
+    border: 0 none;
+    cursor: pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.star {
+    color: red;
+}
+
+.button {
+    height: 45px;
+    margin: 20px 0;
+}
+
+.listingBtn {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 5px;
+    outline: none;
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #424874, #a6b1e1);
+    cursor: pointer;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.listingBtn:hover {
+    background: linear-gradient(-135deg, #424874, #a6b1e1);
+
+}
