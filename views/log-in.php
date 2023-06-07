@@ -49,7 +49,6 @@ session_start();
                         <label>E-mail</label>
                         <input type="text" name="email"><br>
                     </div>
-                    <!-- Trial comment -->
                     <div class="form-group workForm">
                         <label>Phone</label>
                         <input type="text" name ='phone'>
