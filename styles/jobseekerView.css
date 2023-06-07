@@ -215,10 +215,6 @@ body{
 }
 
 #posts {
-    /* position: absolute;
-    z-index: 1;
-    top: 40%;
-    left: 25%; */
     width: 45vw;
     height: 20vh;
     border-radius: 10%;
@@ -228,7 +224,6 @@ body{
     box-shadow: 0px 5px 20px 1px gray;
     margin-bottom: 5vh;
     margin-top: 2vh;
-    margin-left: 3vw;
 }
 
 #profImage{
@@ -423,9 +418,10 @@ section label {
     background-repeat: no-repeat;
     background-size: 10px;
     padding-right: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-family: Poppins;
     font-weight: 600;
+    margin-top: 5px;
 }
 
 .select option {
