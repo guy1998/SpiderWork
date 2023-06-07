@@ -12,6 +12,9 @@ session_start();
     <title>SpiderWork</title>
     <link rel="stylesheet" type="text/css" href="../styles/log-in.css">
 </head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;1,600&family=Righteous&display=swap');
+</style>
 <body>
     <h2 id="slogan" class="">Weave your future with the best weavers</h2>
     <h4 id="contactEmail" class="">spiders@gmail.com</h4>
@@ -156,7 +159,7 @@ session_start();
             </form>
             </div>
 
-            <li onclick="activateReqForm()">CONNECT</li>
+            <!-- <li onclick="activateReqForm()">CONNECT</li>
             <div id="formReq">
                 <form method="post" action="../controller/reqSignUp.php">
                 <h3>General information:</h3>
@@ -197,10 +200,29 @@ session_start();
                     <p class="errorMessage"></p>
                     <input type="submit" name="signUp3" id="signUp3" value="Sign-Up" class="add-buttons">
                 </form>
-                </div>
+                </div> -->
 
         </ul>
     </div>
+
+    <div class="spider" id="spider">
+        <div class="spiderweb"></div>
+        <div class="body">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+        </div>
+        <div class="legs left">
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+        </div>
+        <div class="legs right">
+            <div class="leg"></div>
+            <div class="leg"></div>
+            <div class="leg"></div>
+        </div>
+    </div>
+
     <script src="../scripts/log-in.js"></script>
     <script src="../scripts/loginValidate.js"></script>
     <script src="../scripts/signUpValidate.js"></script>

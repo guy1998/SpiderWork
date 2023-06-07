@@ -7,6 +7,7 @@ const activateSignUp = function(){
     const signBtn = document.getElementById('directSign');
     const email = document.getElementById('contactEmail');
     const phone = document.getElementById('contactNumber');
+    const spider = document.getElementById('spider');
 
     email.classList.add('hidden');
     phone.classList.add('hidden');
@@ -16,6 +17,7 @@ const activateSignUp = function(){
     div.classList.remove('waiting')
     setTimeout(() => {
         div.style.left = "48vw";
+        spider.style.left = "15%";
     }, 200);
     signBtn.classList.add('hidden');
 }
@@ -23,58 +25,58 @@ const activateSignUp = function(){
 const activateWorkerForm = function(){
     const formWorker = document.getElementById('formWorker');
     const formEmp = document.getElementById('formEmp');
-    const formReq = document.getElementById('formReq');
-    if(formEmp.style.maxHeight === '40vh'){
+    //const formReq = document.getElementById('formReq');
+    if(formEmp.style.maxHeight === '60vh'){
         formEmp.style.maxHeight = '0vh';
     }
-    if(formReq.style.maxHeight === '40vh')
-        formReq.style.maxHeight = '0vh';
+    // if(formReq.style.maxHeight === '40vh')
+    //     formReq.style.maxHeight = '0vh';
     
-    if(formWorker.style.maxHeight === '40vh'){
+    if(formWorker.style.maxHeight === '60vh'){
         formWorker.style.maxHeight = '0vh';
     }
     else{
-        formWorker.style.maxHeight = '40vh';
+        formWorker.style.maxHeight = '60vh';
     }
 }
 
 const activateEmployeeForm = function(){
     const formWorker = document.getElementById('formWorker');
     const formEmp = document.getElementById('formEmp');
-    const formReq = document.getElementById('formReq');
-    if(formWorker.style.maxHeight === '40vh'){
+   //const formReq = document.getElementById('formReq');
+    if(formWorker.style.maxHeight === '60vh'){
         formWorker.style.maxHeight = '0vh';
     }
 
-    if(formReq.style.maxHeight === '40vh')
-        formReq.style.maxHeight = '0vh';
+    // if(formReq.style.maxHeight === '40vh')
+    //     formReq.style.maxHeight = '0vh';
     
-    if(formEmp.style.maxHeight === '40vh'){
+    if(formEmp.style.maxHeight === '60vh'){
         formEmp.style.maxHeight = '0vh';
     }
     else{
-        formEmp.style.maxHeight = '40vh';
+        formEmp.style.maxHeight = '60vh';
     }
 }
 
-const activateReqForm = function(){
-    const formWorker = document.getElementById('formWorker');
-    const formEmp = document.getElementById('formEmp');
-    const formReq = document.getElementById('formReq');
-    if(formWorker.style.maxHeight === '40vh'){
-        formWorker.style.maxHeight = '0vh';
-    }
+// const activateReqForm = function(){
+//     const formWorker = document.getElementById('formWorker');
+//     const formEmp = document.getElementById('formEmp');
+//     const formReq = document.getElementById('formReq');
+//     if(formWorker.style.maxHeight === '40vh'){
+//         formWorker.style.maxHeight = '0vh';
+//     }
 
-    if(formEmp.style.maxHeight === '40vh')
-        formEmp.style.maxHeight = '0vh';
+//     if(formEmp.style.maxHeight === '40vh')
+//         formEmp.style.maxHeight = '0vh';
     
-    if(formReq.style.maxHeight === '40vh'){
-        formReq.style.maxHeight = '0vh';
-    }
-    else{
-        formReq.style.maxHeight = '40vh';
-    }
-}
+//     if(formReq.style.maxHeight === '40vh'){
+//         formReq.style.maxHeight = '0vh';
+//     }
+//     else{
+//         formReq.style.maxHeight = '40vh';
+//     }
+// }
 
 const addExperienceField = function(){
 
