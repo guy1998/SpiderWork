@@ -5,7 +5,7 @@ function validateWorker() {
   let elements = document.getElementsByClassName('workForm');
   for(let i=0; i<elements.length; i++){
     console.log("Yes");
-    elements[i].style.borderColor = "black";
+    elements[i].style.borderColor = "darkorchid";
   }
   if (x == "") {
     errorMessages[0].innerHTML = "Name must be filled out";
@@ -94,7 +94,7 @@ function validateEmployer() {
   let elements = document.getElementsByClassName('empForm');
   for(let i=0; i<elements.length; i++){
     console.log("Yes");
-    elements[i].style.borderColor = "black";
+    elements[i].style.borderColor = "darkorchid";
   }
   let x = document.forms["formemp"]["Coname"].value;
   if (x == "") {
