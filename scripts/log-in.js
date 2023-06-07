@@ -18,7 +18,6 @@ const activateSignUp = function(){
         div.style.left = "48vw";
     }, 200);
     signBtn.classList.add('hidden');
-    //document.body.style.backgroundImage = 'url("../images/pexels-rūdolfs-klintsons-7120352.jpg")';
 }
 
 const activateWorkerForm = function(){
@@ -94,5 +93,17 @@ const addSchoolField = function(){
     schoolField.style.display = 'block';
     var insertHere = document.getElementById('seekerSchool');
     insertHere.parentNode.insertBefore(schoolField, insertHere);
+
+}
+
+var inputTypeNumbers = document.querySelectorAll("input[type=number]");
+
+for (var a = 0; a < inputTypeNumbers.length; a++) {
+
+    inputTypeNumbers[a].onwheel = function (event) {
+
+        event.target.blur();
+
+    };
 
 }
