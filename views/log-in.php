@@ -33,55 +33,54 @@ session_start();
         <h1 id="prompt">Make your first move here</h1>
         <h2 id="choice">You're seeking to:</h2>
         <ul id="types">
-
             <li onclick="activateWorkerForm()">WORK</li>
             <div id="formWorker">
-                <form method="POST" onsubmit="" action="../controller/user.php" enctype="multipart/form-data">
+                <form method="POST" name = "formwork" onsubmit="return validateWorker()" action="../controller/user.php" enctype="multipart/form-data">
                     <h3>General information:</h3>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Name</label>
-                        <input type="text" name ='name' required><br>
+                        <input type="text" name ='name'><br>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Surname</label>
-                        <input type="text" name="surname" required><br>
+                        <input type="text" name="surname"><br>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>E-mail</label>
-                        <input type="text" name="email" required><br>
+                        <input type="text" name="email"><br>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Phone</label>
-                        <input type="text" name ='phone' required>
+                        <input type="text" name ='phone'>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Birthday</label>
-                        <input type="date" name ='birthday' required>
+                        <input type="date" name ='birthday'>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Work field</label>
-                        <input type="text" name ='field' required>
+                        <input type="text" name ='field'>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Username</label>
-                        <input type="text" name ='username' required>
+                        <input type="text" name ='username'>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group workForm">
                         <label>Password</label>
-                        <input type="password" name ='password' required>
+                        <input type="password" name ='password' class="pass">
                     </div>
                     <h3>Professional experience:</h3>
                     <div id="readField">
                         <h4>Employer</h4>
-                        <div class="form-group">
+                        <div class="form-group workForm">
                             <label>Employer's name</label>
-                            <input type="text" name ='empName' required>
+                            <input type="text" name ='empName'>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group workForm">
                             <label>Years</label>
-                            <input type="number" name ='years' required>
+                            <input type="number" name ='years'>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group workForm">
                             <label>Description</label>
                             <textarea name="jobDesc"></textarea>
                         </div>
@@ -89,68 +88,70 @@ session_start();
                     <h3>Education:</h3>
                     <div id="readField2">
                         <h4>School</h4>
-                        <div class="form-group">
+                        <div class="form-group workForm">
                             <label>School's name</label>
-                            <input type="text" name ='school' required>
+                            <input type="text" name ='school'>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group workForm">
                             <label>Degree</label>
-                            <input type="text" name ='degree' required>
+                            <input type="text" name ='degree'>
                         </div>
                     </div>
+                    <p class="errorMessage"></p>
                     <input type="submit" name="signUp1" id="signUp1" value="Sign-Up" class="add-buttons">
                 </form>
             </div>
 
             <li onclick="activateEmployeeForm()">EMPLOY</li>
             <div id="formEmp">
-            <form method="post" onsubmit="validateEmployer()" action="../controller/empSignUp.php" name="formemp">
+            <form method="post" onsubmit="return validateEmployer()" action="../controller/empSignUp.php" name="formemp">
                 <h3>General information:</h3>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Company's name</label>
-                    <input type="text" name ='Coname' required><br>
+                    <input type="text" name ='Coname'><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Owner's name</label>
-                    <input type="text" name="Oname" required><br>
+                    <input type="text" name="Oname"><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Owner's surname</label>
-                    <input type="text" name="Osurname" required><br>
+                    <input type="text" name="Osurname"><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Contact's name</label>
-                    <input type="text" name="Contactname" required><br>
+                    <input type="text" name="Contactname"><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Contact's surname</label>
-                    <input type="text" name="Contactsurname" required><br>
+                    <input type="text" name="Contactsurname"><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>E-mail</label>
-                    <input type="text" name="email" required><br>
+                    <input type="text" name="email"><br>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Phone</label>
-                    <input type="text" name ='phone' required>
+                    <input type="text" name ='phone'>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Founding date</label>
-                    <input type="date" name ='fd' required>
+                    <input type="date" name ='fd'>
                 </div>
-                <div class="form-group">
+                <div class="form-group empForm">
                     <label>Work field</label>
-                    <input type="text" name ='field' required>
+                    <input type="text" name ='field'>
                 </div>
                 <h3>Account credentials</h3>
-                <div class="form-group">
+                <div class="form-group empForm">
                         <label>Username</label>
-                        <input type="text" name ='username' required>
+                        <input type="text" name ='username'>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group empForm">
                         <label>Password</label>
-                        <input type="password" name ='password' required>
+                        <input type="password" name ='password' class="pass">
                     </div>
+                <p class="errorMessage"></p>
                 <input type="submit" name="signUp2" id="signUp2" value="Sign-Up" class="add-buttons">
             </form>
             </div>
@@ -193,6 +194,7 @@ session_start();
                         <label>Website</label>
                         <input type="text" name ='website'>
                     </div>
+                    <p class="errorMessage"></p>
                     <input type="submit" name="signUp3" id="signUp3" value="Sign-Up" class="add-buttons">
                 </form>
                 </div>
