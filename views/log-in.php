@@ -22,7 +22,7 @@ session_start();
         <li><img src="../images/twitter.png" onclick="" width="20px" height="20px"></li>
         <li><img src="../images/instagram.png" onclick="" width="20px" height="20px"></li>
     </ul>
-    <form id="login" class ="" onsubmit="validateForm();" name="login">
+    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm()" class ="">
         <h1>SpiderWork</h1>
         <input type="text" required placeholder="username" name="username"><br>
         <input type = "password" required placeholder="password" name="password"><br>
@@ -200,5 +200,5 @@ session_start();
         </ul>
     </div>
     <script src="../scripts/log-in.js"></script>
-    <script src="../scripts/signUpValidate.js"></script>
+    <script src="../scripts/loginValidate.js"></script>
 </body>

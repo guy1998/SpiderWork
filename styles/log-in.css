@@ -24,14 +24,14 @@
 }
 
 body{
-    background-image: url("../images/pexels-magda-ehlers-4079967.jpg");
+    background-image: url("../images/friendly\ spider\ weaving\ her\ web.png");
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-transition: background 0s ease-in-out;
-    -moz-transition: background 0s ease-in-out;
-    -o-transition: background 0s ease-in-out;
-    -ms-transition: background 0s ease-in-out;
-    transition: background 0s ease-in-out;
+    -webkit-transition: background 0.5s ease-in-out;
+    -moz-transition: background 0.5s ease-in-out;
+    -o-transition: background 0.5s ease-in-out;
+    -ms-transition: background 0.5 ease-in-out;
+    transition: background 0.5s ease-in-out;
     margin: 0px;
     padding: 0px;
     font-family: roboto-bold;
@@ -186,7 +186,7 @@ body{
 
 .hidden{
     animation: goners;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     opacity: 0;
 }
 
@@ -266,13 +266,15 @@ body{
     -webkit-backdrop-filter: blur(8px);
     padding: 15vh 0vw 0vh 7vw;
     z-index: 0;
-    animation-delay: 2s;
+    /* animation-delay: 2s;
     animation: comingOut;
-    animation-duration: 0.7s;
-    left: 48vw;
+    animation-duration: 0.7s; */
+    transition: all;
+    transition-duration: 2s;
+    left: 0vw;
 }
 
-@keyframes comingOut {
+/* @keyframes comingOut {
     0%{
         left: 0vw;
     }
@@ -336,7 +338,7 @@ body{
     100%{
         left: 48vw;
     }
-}
+} */
 
 #prompt{
     color: white;
