@@ -1,0 +1,61 @@
+
+@font-face {
+    font-family: buttons;
+    src: url(../fonts/LilGrotesk-Bold.otf);
+  }
+
+body{
+    margin: 10vh 0 0 20vw;
+    align-items: center;
+    font-family: Poppins;
+    color: black;
+}
+
+img{
+    border-radius: 50%;
+    margin-left: 12vw;
+}
+
+h3{
+    margin-left: 9vw;
+}
+
+button{
+    background-color: purple;
+    color: white;
+    border: none;
+    width: 7vw;
+    height: 4vh;
+    border-radius: 10px;
+    font-family: buttons;
+    font-weight: bold;
+}
+
+#main{
+    overflow: auto;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  max-height: 80vh;
+  max-width: 30vw;
+  background-color: #b19cd9;
+  padding: 10px;
+}
+
+h4{
+    margin-bottom: 0vh;
+}
+
+button:hover{
+    background-color: darkorchid;
+    cursor: pointer;
+}
+
+p{
+    margin-bottom: 2vh;
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+#buttonsDiv{
+    margin-left: 4vw;
+}
