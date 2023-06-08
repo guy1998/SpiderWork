@@ -24,7 +24,7 @@ $seeker = fetchSeeker($_SESSION['userid']);
 </head>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 </style>
 
 <body>
@@ -70,9 +70,10 @@ $seeker = fetchSeeker($_SESSION['userid']);
         $employers = $statement2->fetchAll();
         $j = 0;
         while ($j < count($employers)) { ?>
-            <div class="eachUser"><img src=<?php echo $employers[$j]['profilepic']; ?> width="30" height="30">
-                <p><?php echo $employers[$j]['companyName']; ?></p><button>View</button>
-            </div>
+        <div class="eachUser"><img src=<?php echo $employers[$j]['profilepic']; ?> width="30" height="30">
+            <p><?php echo $employers[$j]['companyName']; ?></p>
+            <a href="employerInfo.php?id=<?php echo $employers[$j]['employerId']; ?>"><button>View</button></a>
+        </div>
         <?php $j++;
         } ?>
     </div>
@@ -82,37 +83,38 @@ $seeker = fetchSeeker($_SESSION['userid']);
         <input type="radio" name="slider" checked id="bachelor" />
         <input type="radio" name="slider" id="master" />
         <nav>
-            <label for="bachelor" class="bachelor"><i class="bachelor"></i>Listings</label>
-            <label for="master" class="master"><i class="master"></i>Notifications</label>
+            <label for="bachelor" class="bachelor"><i class="bachelor"></i>Notifications</label>
+            <label for="master" class="master"><i class="master"></i>Invitations</label>
             <div class="slider"></div>
         </nav>
         <section>
             <?php
-        $getNotification = "SELECT * FROM application_response WHERE userid = :userid";
-        $statement3 = $conn->prepare($getNotification);
-        try {
-            $statement3->execute(['userid' => $seeker['userid']]);
-        } catch (PDOException $error) {
-            var_dump($error);
-        }
-        $notifications = $statement3->fetchAll();
-        $i = 0;
-        while ($i < count($notifications)) { ?>
-            <?php
-            $currEmp = "SELECT * FROM employer WHERE employerid = :employerid";
-            $currList = "SELECT * FROM joblisting WHERE listing_id = :listing_id";
-            $statement4 = $conn->prepare($currEmp);
-            $statement5 = $conn->prepare($currList);
+            $getNotification = "SELECT * FROM application_response WHERE userid = :userid";
+            $statement3 = $conn->prepare($getNotification);
             try {
-                $statement4->execute(['employerid' => $notifications[$i]['employerid']]);
-                $statement5->execute(['listing_id' => $notifications[$i]['listingid']]);
+
+                $statement3->execute(['userid' => $seeker['userid']]);
             } catch (PDOException $error) {
                 var_dump($error);
             }
-            $nextEmp = $statement4->fetch();
-            $nextList = $statement5->fetch();
-            ?>
-            <div id="posts program" class = "select">
+            $notifications = $statement3->fetchAll();
+            $i = 0;
+            while ($i < count($notifications)) { ?>
+            <?php
+                $currEmp = "SELECT * FROM employer WHERE employerid = :employerid";
+                $currList = "SELECT * FROM joblisting WHERE listing_id = :listing_id";
+                $statement4 = $conn->prepare($currEmp);
+                $statement5 = $conn->prepare($currList);
+                try {
+                    $statement4->execute(['employerid' => $notifications[$i]['employerid']]);
+                    $statement5->execute(['listing_id' => $notifications[$i]['listing_id']]);
+                } catch (PDOException $error) {
+                    var_dump($error);
+                }
+                $nextEmp = $statement4->fetch();
+                $nextList = $statement5->fetch();
+                ?>
+            <div id="posts program" class="select">
                 <div id="profImage">
                 </div>
                 <div>
@@ -123,16 +125,16 @@ $seeker = fetchSeeker($_SESSION['userid']);
                     </div>
                 </div>
             </div>
-        <?php $i++;
-        } ?>
-                <?php if ($i == 0) : ?>
-                <h3 id="nothingYet">No listings yet</h3>
-                <?php endif; ?>
-            </div>
-            <div class="content content-2">
-                    </div>                    
-            </div>
-        </section>
+            <?php $i++;
+            } ?>
+            <?php if ($i == 0) : ?>
+            <h3 id="nothingYet">No listings yet</h3>
+            <?php endif; ?>
+    </div>
+    <div class="content content-2">
+    </div>
+    </div>
+    </section>
     </div>
     <script src="../scripts/userview.js"></script>
     <script>
