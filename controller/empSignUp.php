@@ -15,7 +15,7 @@ $field = isset($_POST['field']) ? $_POST['field'] : '';
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
 
-$sql = "INSERT INTO employer (contactName, contactSurname, companyName, ownerName, ownerSurname, field, email, username, password, foundingDate, profilepic) VALUES (:contactName, :contactSurname, :companyName, :ownerName, :ownerSurname, :field, :email, :username, :password, :foundingDate, '../images/bg image.jpg')";
+$sql = "INSERT INTO employer (contactName, contactSurname, companyName, ownerName, ownerSurname, field, email, username, password, foundingDate, profilepic) VALUES (:contactName, :contactSurname, :companyName, :ownerName, :ownerSurname, :field, :email, :username, :password, :foundingDate, '../images/defaultUser.png')";
 $phone_sql = "INSERT INTO employerphone VALUES ((SELECT COUNT(*) FROM employer), :phone)";
 
 $statement = $connection->prepare($sql);
@@ -28,7 +28,7 @@ try{
         'companyName'=>$comp_name,
         'ownerName'=>$owner_name,
         'ownerSurname'=>$owner_surname,
-        'field'=>$fd,
+        'field'=>$field,
         'email'=>$email,
         'password'=>$password,
         'username'=>$username,
@@ -53,4 +53,6 @@ try{
 $result = $statement3->fetchAll();
 $_SESSION['userid'] = $result[0]['employerId'];
 
-header("Location: ../views/userview.php");
+echo $_SESSION['userid'];
+
+header("Location: ../views/employer.php");

@@ -33,7 +33,7 @@ CREATE TABLE Recruiter (
 );
 
 CREATE TABLE Employer (
-  employerId INT PRIMARY KEY,
+   employerId INT PRIMARY KEY AUTO_INCREMENT,
   contactName VARCHAR(100),
   contactSurname VARCHAR(100),
   companyName VARCHAR(100),
@@ -65,3 +65,25 @@ CREATE TABLE JobListing (
   employerid INT,
   FOREIGN KEY (employerid) REFERENCES Employer (employerId)
 );
+
+CREATE TABLE application_response (
+  listing_id INT,
+  userid INT,
+  employerid INT,
+  listing_id INT,
+  application_date DATE,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+);
+
+CREATE TABLE application (
+  userid INT,
+  employerid INT,
+  listing_id INT,
+  application_date DATE,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+);
+

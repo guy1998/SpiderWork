@@ -1,5 +1,10 @@
 <?php
-include '../connector/connect.php';
+
+session_start();
+include_once '../connector/connect.php';
+$conn = connect('spiderwork', 'root', '');
+
+
 ?>
 <html lang="en">
 
@@ -8,11 +13,24 @@ include '../connector/connect.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpiderWork</title>
-    <link rel="stylesheet" href="../styles/page.css" type="text/css">
+    <link rel="stylesheet" href="../styles/page.css?v=1.0" type="text/css">
 </head>
 
 <body>
     <div>
+        <?php if(isset($_SESSION['userid'])): ?>
+        <nav>
+            <label class="logo">SpiderWork</label>
+            <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
+            <ul>
+                <li><a class="navItem" href="#">Job Search</a></li>
+                <li><a class="navItem" href="#">Career Guide</a></li>
+                <li>|</li>
+                <li><a class="navItem" href="#">For Employers</a></li>
+            </ul>
+        </nav>
+        <?php endif; ?>
+        <?php if(!isset($_SESSION['userid'])): ?>
         <nav>
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
@@ -25,6 +43,7 @@ include '../connector/connect.php';
                 <li><a class="navItem" href="#">For Employers</a></li>
             </ul>
         </nav>
+        <?php endif; ?>
     </div>
     <div class="mainPage">
         <section>
@@ -57,7 +76,7 @@ include '../connector/connect.php';
         <main>
             <article class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
-                <a class="applyLink" href="#">Apply Now</a>
+                <button class="applyLink"><a href="../controller/application.php">Apply Now</a></button>
                 <img class="jobImg" src="../images/team.png" alt="profile">
                 <div>
                     <ul class="hoursAndSalary">
@@ -66,7 +85,7 @@ include '../connector/connect.php';
                     </ul>
                 </div>
                 <div>
-                    <p class="info" id="description">#Job Description</p>
+                    <p class="info" id="description">Job Description</p>
                 </div>
             </article>
         </main>
@@ -127,6 +146,19 @@ include '../connector/connect.php';
 
             const job = jobListings.find(item => item.listing_id === id);
             if (job) {
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/set_session.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                xhr.send('listing_id=' + id); 
                 document.getElementById("jobTitle").innerText = job.job_title;
                 document.getElementById("deadline").innerText = job.application_deadline;
                 document.getElementById("salary").innerText = job.salary;
