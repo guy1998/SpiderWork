@@ -83,8 +83,8 @@ $seeker = fetchSeeker($_SESSION['userid']);
         <input type="radio" name="slider" checked id="bachelor" />
         <input type="radio" name="slider" id="master" />
         <nav>
-            <label for="bachelor" class="bachelor"><i class="bachelor"></i>Listings</label>
-            <label for="master" class="master"><i class="master"></i>Notifications</label>
+            <label for="bachelor" class="bachelor"><i class="bachelor"></i>Notifications</label>
+            <label for="master" class="master"><i class="master"></i>Invitations</label>
             <div class="slider"></div>
         </nav>
         <section>

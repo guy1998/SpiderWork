@@ -253,7 +253,9 @@ $current_emp = fetchEmployer($_SESSION['userid'])
         $seekers = $statement2->fetchAll();
         $j = 0;
         while ($j < count($seekers)) { ?>
-            <p> <img src=<?php echo $seekers[$j]['profilepic'] ?> width="30" height="30"><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p>
+         <div class="eachUser"><img src=<?php echo $seekers[$j]['profilepic']; ?> width="30" height="30">
+                <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button>View</button>
+        </div>
         <?php $j++;
         }
         ?>
@@ -344,12 +346,10 @@ $current_emp = fetchEmployer($_SESSION['userid'])
                             ?>
                             <img id="setting" src="../images/menu.png" width="15" height="15">
                             <div id="texts">
-                                <p><strong><?php echo $current_applicant['name'] . " " . $current_applicant['surname']; ?></strong>
-                                </p>
-                                <p>Applied for the position of<?php echo " " . $current_position['job_title']; ?></p>
-                                <p>Date of application:<?php echo " " . $applications[$k]['application_date']; ?></p>
-                                <img src="../images/heart.png" width="15" height="15">
-                                <img src="../images/chat-bubble.png" width="15" height="15">
+                                <p><strong><?php echo $current_applicant['name']." ".$current_applicant['surname']; ?></strong></p>
+                                <p>Applied for the position of<?php echo " ".$current_position['job_title']; ?></p>
+                                <p>Date of application:<?php echo " ".$applications[$k]['application_date']; ?></p>
+                                <button onclick="Runner.displayPopup({url: 'viewJobSeeker.php'})">View profile</button>
                             </div>
                         </div>
                     <?php
@@ -363,7 +363,7 @@ $current_emp = fetchEmployer($_SESSION['userid'])
 
     <script src="../scripts/userview.js"></script>
     <script>
-
+    
     </script>
 </body>
 

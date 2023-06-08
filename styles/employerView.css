@@ -276,3 +276,50 @@ body {
   left: 45%;
   top: 45%;
 }
+
+.eachUser{
+  display: flex;
+align-items: center;
+margin: 5px;
+justify-content: space-between;
+}
+
+.eachUser img{
+  margin-left:1vw;
+}
+
+
+.eachUser button{
+  background-color: purple;
+  color: white;
+  border: none;
+  width: 4vw;
+  height: 4vh;
+  margin-right: 2vw;
+  border-radius: 10px;
+  font-family: buttons;
+}
+
+.eachUser button:hover{
+  background-color: darkorchid;
+  cursor: pointer;
+}
+
+.eachUser p{
+  margin-right: 1vw;
+}
+
+#texts button{
+  background-color: purple;
+  color: white;
+  border: none;
+  width: 7vw;
+  height: 4vh;
+  border-radius: 10px;
+  font-family: buttons;
+}
+
+#texts button:hover{
+  background-color: darkorchid;
+  cursor: pointer;
+}
