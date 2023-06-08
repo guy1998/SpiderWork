@@ -1,7 +1,17 @@
 <?php
 
 session_start();
-
+if(isset($_SESSION['userid'])) {
+    if(isset($_SESSION['companyName'])){
+        header("Location: employer.php");
+        exit;
+    }
+    else{
+        header("Location: jobseeker.php");
+        exit;
+    }
+} 
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
