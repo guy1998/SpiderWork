@@ -4,7 +4,7 @@ session_start();
 include "../controller/functions.php";
 include_once "../connector/connect.php";
 $conn = connect('spiderwork', 'root', '');
-$current_emp = fetchEmployer($_SESSION['userid'])
+$current_emp = fetchEmployer($_SESSION['userid']);
 
 ?>
 
@@ -221,7 +221,7 @@ $current_emp = fetchEmployer($_SESSION['userid'])
             <li><button type="button" onclick="dropdownOptions()"></button></li>
             <div id="optionsMenu">
                 <ul id="optionLinks">
-                    <li><a href="profileCustomization.html">My account</a></li>
+                    <li><a href="../views/profileCustomization.php" onclick="redirectToProfileChange()">My account</a></li>
                     <li><a href="">Settings</a></li>
                     <li><a href="../controller/logOutController.php">Log out</a></li>
                 </ul>
@@ -363,7 +363,21 @@ $current_emp = fetchEmployer($_SESSION['userid'])
 
     <script src="../scripts/userview.js"></script>
     <script>
-    
+        const redirectToProfileChange = function(){
+            var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/set_session.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                xhr.send('user_type=employer');
+        }
     </script>
 </body>
 

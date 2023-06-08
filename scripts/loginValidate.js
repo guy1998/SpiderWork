@@ -1,28 +1,16 @@
 function validateForm() {
-<<<<<<< HEAD
-    let x = document.forms["login"]["username"].value;
-    if (x == "") {
-      alert("Username must be filled out");
-      return false;
-    }
-      
-    let y = document.forms["login"]["pasword"].value;
-    if (y == "") {
-        alert("Password must be filled out");
-        return false;
-      } 
-  }
-=======
   let x = document.forms["login"]["username"].value;
+  document.forms['login']['username'].style.border = "none";
   if (x == "") {
-    alert("Username must be filled out");
+    document.forms['login']['username'].style.border = "2px solid red";
     return false;
   }
     
-  let y = document.forms["login"]["pasword"].value;
+  let y = document.forms["login"]["password"].value;
+  document.forms['login']['password'].style.border = "none";
   if (y == "") {
-      alert("Password must be filled out");
+    document.forms['login']['password'].style.border = "2px solid red";
       return false;
-    } 
+  } 
+
 }
->>>>>>> 170d3aea3357da3a2ede8aeb325bbc370146adc4
