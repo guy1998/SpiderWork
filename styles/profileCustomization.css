@@ -100,9 +100,17 @@ input[type = "lang"] {
   margin-bottom: 2vw;
 }
 
-.language p,
 .privacy-settings p {
-  margin: 0;
+  width: 90%;
+  height: 7vh;
+  width: 90%;
+  padding: 0.65vw;
+  font-size: 15px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  box-sizing: border-box;
+  margin-top: 0.5vw;
+  background: whitesmoke;
 }
 
 .button-section {
@@ -110,6 +118,7 @@ input[type = "lang"] {
   justify-content: center;
   align-items: center;
   padding: 2vw;
+  border-top: 2px solid rgb(206, 206, 206);
 }
 
 button {
