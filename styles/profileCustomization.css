@@ -141,3 +141,15 @@ button {
   background-color: #FF0000;
   border-radius: 30px;
 }
+.language-selector{
+  width: 90%;
+  height: 7vh;
+  padding: 1vw;
+  font-size: 1.6vw;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  box-sizing: border-box;
+  margin-top: 0.5vw;
+  background: whitesmoke;
+  font-size: 15px;
+}
