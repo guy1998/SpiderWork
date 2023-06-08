@@ -21,6 +21,16 @@ body {
   align-items: center;
   background-color: #fff;
 }
+.profile-section {
+  border-radius: 30px;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  background: rgba(231, 228, 228, 0.596);
+  box-shadow: 2px 2px rgba(147, 141, 141, 0.515);
+}
 
 .profile-details {
   text-align: center;
