@@ -48,13 +48,19 @@ if($_SESSION['user_type'] == "employer"){
         </div>
         <div class="form-group">
             <?php if($_SESSION['user_type'] == "employer"): ?>
-              <label for="surname">Company Name</label>
+              <label for="surname">Owner Name</label>
               <input type="text" id="surname1" name="surname" required value=<?php echo $current_user['companyName']; ?>>
             <?php else: ?>
               <label for="surname">Surname</label>
               <input type="text" id="surname" name="surname" required value=<?php echo $current_user['surname']; ?>>
             <?php endif; ?>
         </div>
+        <?php if($_SESSION['user_type'] == "employer"): ?>
+          <div class="form-group">
+            <label for="surname">Owner Surname</label>
+            <input type="text" id="surname2" name="surname" required value=<?php echo $current_user['companyName']; ?>>
+          </div>
+        <?php endif; ?>
         <?php 
         if(!($_SESSION['user_type'] == "employer")){
           $retreivePhone = "SELECT phone_number FROM phone_numbers WHERE person_id = :userid";
@@ -73,13 +79,12 @@ if($_SESSION['user_type'] == "employer"){
           }catch(PDOException $error){
             var_dump($error);
           }
-          $temp = $phoneStatement->fetch();
-          $currentPhoneNumber = $temp;
+          $currentPhoneNumber =$phoneStatement->fetch();
         }
         ?>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="text" id="phone" name="phone" required value="<?php echo $currentPhoneNumber; ?>">
+          <input type="text" id="phone" name="phone" required value="<?php echo $currentPhoneNumber[0]; ?>">
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
@@ -119,10 +124,76 @@ if($_SESSION['user_type'] == "employer"){
       </div>
     </div>
     <div class="button-section">
-      <button class="save-button">Save</button>
+      <button class="save-button" onclick="modifyUser('<?php echo $_SESSION['user_type']; ?>')">Save</button>
+      <button class="save-button" onclick=""></button>
       <button class="delete-account-button">Delete Account</button>
     </div>
   </div>
+  <script>
+    const modifyUser = function(usertype){
+
+      if(usertype === "employer"){
+
+                let companyName = document.getElementById('name1').value;
+                let ownerName = document.getElementById('surname1').value;
+                let ownerSurname = document.getElementById('surname2').value;
+                let phone = document.getElementById("phone").value;
+                let email = document.getElementById("email").value;
+                let username = document.getElementById("username").value;
+
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/modifyUser.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                var data = 'username=' + encodeURIComponent(username) +
+           '&companyName=' + encodeURIComponent(companyName) +
+           '&ownerName=' +encodeURIComponent(ownerName) +
+           '&ownerSurname=' + encodeURIComponent(ownerSurname) +
+           '&email=' + encodeURIComponent(email) +
+           '&phone=' + encodeURIComponent(phone);
+            console.log(data);
+           xhr.send(data);
+      }else{
+            let name = document.getElementById("name").value;
+            let surname = document.getElementById("surname").value;
+            let phone = document.getElementById("phone").value;
+            let email = document.getElementById("email").value;
+            let username = document.getElementById("username").value;
+            if(name && surname && phone && email && username){
+              var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/modifyUser.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                var data = 'username=' + encodeURIComponent(username) +
+           '&name=' + encodeURIComponent(name) +
+           '&surname=' + encodeURIComponent(surname) +
+           '&email=' + encodeURIComponent(email) +
+           '&phone=' + encodeURIComponent(phone);
+           console.log("Before data");
+            console.log(data)
+            console.log("After data");
+            xhr.send(data);
+            
+      }
+    }
+  }
+  </script>
 </body>
 
 </html>

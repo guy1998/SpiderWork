@@ -70,8 +70,8 @@ CREATE TABLE application_response (
   listing_id INT,
   userid INT,
   employerid INT,
-  listing_id INT,
   application_date DATE,
+  response_type INT,
   FOREIGN KEY (userid) REFERENCES person(userid),
   FOREIGN KEY (employerid) REFERENCES employer(employerid),
   FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
