@@ -19,8 +19,8 @@
         <h2 class="navbar-logo"><a href="#">SPIDERWORK</a></h2>
         <div class="navbar-menu">
             <a href="#jobs">Jobs</a>
-            <a href="cvgenerator.php" target="_blank">Resume</a>
-            <a href="log-in.php">Sign In</a>
+            <a href="../views/cvgenerator.php" target="_blank">Resume</a>
+            <a href="../views/log-in.php">Sign In</a>
         </div>
         <div class="menu-toggle">
             <span class="bar"></span>
@@ -98,7 +98,8 @@
     <section class="job-list" id="jobs">
 
         <?php
-        $result = $_SESSION['results'];
+        if (isset($_SESSION['results']))
+            $result = $_SESSION['results'];
         $i = 0;
         if (isset($result)) {
             while (count($result) > $i) {
