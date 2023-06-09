@@ -24,7 +24,7 @@ $seeker = fetchSeeker($_SESSION['userid']);
 </head>
 
 <style>
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 </style>
 
 <body>
@@ -70,10 +70,10 @@ $seeker = fetchSeeker($_SESSION['userid']);
         $employers = $statement2->fetchAll();
         $j = 0;
         while ($j < count($employers)) { ?>
-        <div class="eachUser"><img src=<?php echo $employers[$j]['profilepic']; ?> width="30" height="30">
-            <p><?php echo $employers[$j]['companyName']; ?></p>
-            <a href="employerInfo.php?id=<?php echo $employers[$j]['employerId']; ?>"><button>View</button></a>
-        </div>
+            <div class="eachUser"><img src=<?php echo $employers[$j]['profilepic']; ?> width="30" height="30">
+                <p><?php echo $employers[$j]['companyName']; ?></p>
+                <a href="employerInfo.php?id=<?php echo $employers[$j]['employerId']; ?>"><button>View</button></a>
+            </div>
         <?php $j++;
         } ?>
     </div>
@@ -100,39 +100,39 @@ $seeker = fetchSeeker($_SESSION['userid']);
             $notifications = $statement3->fetchAll();
             $i = 0;
             while ($i < count($notifications)) { ?>
-            <?php
+                <?php
                 $currEmp = "SELECT * FROM employer WHERE employerid = :employerid";
                 $currList = "SELECT * FROM joblisting WHERE listing_id = :listing_id";
                 $statement4 = $conn->prepare($currEmp);
                 $statement5 = $conn->prepare($currList);
                 try {
                     $statement4->execute(['employerid' => $notifications[$i]['employerid']]);
-                    $statement5->execute(['listing_id' => $notifications[$i]['listingid']]);
+                    $statement5->execute(['listing_id' => $notifications[$i]['listing_id']]);
                 } catch (PDOException $error) {
                     var_dump($error);
                 }
                 $nextEmp = $statement4->fetch();
                 $nextList = $statement5->fetch();
                 ?>
-            <div id="posts program" class="select">
-                <div id="profImage">
-                </div>
-                <div>
-                    <img id="setting" src="../images/menu.png" width="15" height="15">
-                    <div id="texts">
-                        <p><strong><?php echo $nextEmp['companyName']; ?></strong></p>
-                        <?php if($notifications[$i]['response_type'] == 1): ?>
-                        <p>You have been accepted for the position as <?php echo $nextList['job_title']; ?></p>
-                        <?php else: ?>
-                        <p>You have been rejected for the position as <?php echo $nextList['job_title']; ?></p>
-                        <?php endif; ?>
+                <div id="posts program" class="select">
+                    <div id="profImage">
+                    </div>
+                    <div>
+                        <img id="setting" src="../images/menu.png" width="15" height="15">
+                        <div id="texts">
+                            <p><strong><?php echo $nextEmp['companyName']; ?></strong></p>
+                            <?php if ($notifications[$i]['response_type'] == 1) : ?>
+                                <p>You have been accepted for the position as <?php echo $nextList['job_title']; ?></p>
+                            <?php else : ?>
+                                <p>You have been rejected for the position as <?php echo $nextList['job_title']; ?></p>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
             <?php $i++;
             } ?>
             <?php if ($i == 0) : ?>
-            <h3 id="nothingYet">No listings yet</h3>
+                <h3 id="nothingYet">No listings yet</h3>
             <?php endif; ?>
     </div>
     <div class="content content-2">
@@ -142,20 +142,20 @@ $seeker = fetchSeeker($_SESSION['userid']);
     </div>
     <script src="../scripts/userview.js"></script>
     <script>
-        const redirectToProfileChange = function(){
+        const redirectToProfileChange = function() {
             var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../controller/set_session.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
+            xhr.open('POST', '../controller/set_session.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                    console.log('Session variable set successfully');
+                        console.log('Session variable set successfully');
                     } else {
-                    console.error('Error setting session variable');
+                        console.error('Error setting session variable');
                     }
                 }
-                };
-                xhr.send('user_type=seeker');
+            };
+            xhr.send('user_type=seeker');
         }
     </script>
 </body>

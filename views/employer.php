@@ -221,7 +221,8 @@ $current_emp = fetchEmployer($_SESSION['userid']);
             <li><button type="button" onclick="dropdownOptions()"></button></li>
             <div id="optionsMenu">
                 <ul id="optionLinks">
-                    <li><a href="../views/profileCustomization.php" onclick="redirectToProfileChange()">My account</a></li>
+                    <li><a href="../views/profileCustomization.php" onclick="redirectToProfileChange()">My account</a>
+                    </li>
                     <li><a href="">Settings</a></li>
                     <li><a href="../controller/logOutController.php">Log out</a></li>
                 </ul>
@@ -253,9 +254,9 @@ $current_emp = fetchEmployer($_SESSION['userid']);
         $seekers = $statement2->fetchAll();
         $j = 0;
         while ($j < count($seekers)) { ?>
-         <div class="eachUser"><img src=<?php echo $seekers[$j]['profilepic']; ?> width="30" height="30">
+            <div class="eachUser"><img src=<?php echo $seekers[$j]['profilepic']; ?> width="30" height="30">
                 <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button>View</button>
-        </div>
+            </div>
         <?php $j++;
         }
         ?>
@@ -346,55 +347,57 @@ $current_emp = fetchEmployer($_SESSION['userid']);
                             ?>
                             <img id="setting" src="../images/menu.png" width="15" height="15">
                             <div id="texts">
-                                <p><strong><?php echo $current_applicant['name']." ".$current_applicant['surname']; ?></strong></p>
-                                <p>Applied for the position of<?php echo " ".$current_position['job_title']; ?></p>
-                                <p>Date of application:<?php echo " ".$applications[$k]['application_date']; ?></p>
-                                <button onclick="redirectToPage('../views/viewJobSeeker.php', <?php echo $current_applicant['userid'] ?>, <?php echo $current_position['listing_id']; ?>)">View profile</button>
+                                <p><strong><?php echo $current_applicant['name'] . " " . $current_applicant['surname']; ?></strong>
+                                </p>
+                                <p>Applied for the position of<?php echo " " . $current_position['job_title']; ?></p>
+                                <p>Date of application:<?php echo " " . $applications[$k]['application_date']; ?></p>
+                                <button onclick="redirectToPage('../views/viewJobSeeker.php', <?php echo $current_applicant['userid'] ?>, <?php echo $current_position['listing_id']; ?>)">View
+                                    profile</button>
                             </div>
                         </div>
-                        </div>
-                    <?php
+                    </div>
+                <?php
                     $k++;
                 }
-                    ?>
+                ?>
             </div>
         </section>
     </div>
 
     <script src="../scripts/userview.js"></script>
     <script>
-        const redirectToProfileChange = function(){
+        const redirectToProfileChange = function() {
             var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../controller/set_session.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
+            xhr.open('POST', '../controller/set_session.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                    console.log('Session variable set successfully');
+                        console.log('Session variable set successfully');
                     } else {
-                    console.error('Error setting session variable');
+                        console.error('Error setting session variable');
                     }
                 }
-                };
-                xhr.send('user_type=employer');
+            };
+            xhr.send('user_type=employer');
         }
 
         function redirectToPage(pageURL, id, listing_id) {
             console.log(listing_id);
             var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../controller/set_viewable_id.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
+            xhr.open('POST', '../controller/set_viewable_id.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState === XMLHttpRequest.DONE) {
                     if (xhr.status === 200) {
-                    console.log('Session variable set successfully');
+                        console.log('Session variable set successfully');
                     } else {
-                    console.error('Error setting session variable');
+                        console.error('Error setting session variable');
                     }
                 }
-                };
-                let data = "viewable=" + encodeURIComponent(id) + "&listing_id=" + listing_id
-                xhr.send(data);
+            };
+            let data = "viewable=" + encodeURIComponent(id) + "&listing_id=" + listing_id
+            xhr.send(data);
             window.location.href = pageURL;
         }
     </script>
