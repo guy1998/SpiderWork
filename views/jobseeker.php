@@ -107,7 +107,7 @@ $seeker = fetchSeeker($_SESSION['userid']);
                 $statement5 = $conn->prepare($currList);
                 try {
                     $statement4->execute(['employerid' => $notifications[$i]['employerid']]);
-                    $statement5->execute(['listing_id' => $notifications[$i]['listing_id']]);
+                    $statement5->execute(['listing_id' => $notifications[$i]['listingid']]);
                 } catch (PDOException $error) {
                     var_dump($error);
                 }
@@ -121,7 +121,11 @@ $seeker = fetchSeeker($_SESSION['userid']);
                     <img id="setting" src="../images/menu.png" width="15" height="15">
                     <div id="texts">
                         <p><strong><?php echo $nextEmp['companyName']; ?></strong></p>
+                        <?php if($notifications[$i]['response_type'] == 1): ?>
                         <p>You have been accepted for the position as <?php echo $nextList['job_title']; ?></p>
+                        <?php else: ?>
+                        <p>You have been rejected for the position as <?php echo $nextList['job_title']; ?></p>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

@@ -349,14 +349,14 @@ $current_emp = fetchEmployer($_SESSION['userid']);
                                 <p><strong><?php echo $current_applicant['name']." ".$current_applicant['surname']; ?></strong></p>
                                 <p>Applied for the position of<?php echo " ".$current_position['job_title']; ?></p>
                                 <p>Date of application:<?php echo " ".$applications[$k]['application_date']; ?></p>
-                                <button onclick="Runner.displayPopup({url: 'viewJobSeeker.php'})">View profile</button>
+                                <button onclick="redirectToPage('../views/viewJobSeeker.php', <?php echo $current_applicant['userid'] ?>, <?php echo $current_position['listing_id']; ?>)">View profile</button>
                             </div>
+                        </div>
                         </div>
                     <?php
                     $k++;
                 }
                     ?>
-                    </div>
             </div>
         </section>
     </div>
@@ -377,6 +377,25 @@ $current_emp = fetchEmployer($_SESSION['userid']);
                 }
                 };
                 xhr.send('user_type=employer');
+        }
+
+        function redirectToPage(pageURL, id, listing_id) {
+            console.log(listing_id);
+            var xhr = new XMLHttpRequest();
+                xhr.open('POST', '../controller/set_viewable_id.php', true);
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                    console.log('Session variable set successfully');
+                    } else {
+                    console.error('Error setting session variable');
+                    }
+                }
+                };
+                let data = "viewable=" + encodeURIComponent(id) + "&listing_id=" + listing_id
+                xhr.send(data);
+            window.location.href = pageURL;
         }
     </script>
 </body>
