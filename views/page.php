@@ -159,10 +159,10 @@ $conn = connect('spiderwork', 'root', '');
                 }
                 };
                 xhr.send('listing_id=' + id); 
-                document.getElementById("jobTitle").innerText = job.job_title;
-                document.getElementById("deadline").innerText = job.application_deadline;
-                document.getElementById("salary").innerText = job.salary;
-                document.getElementById("description").innerText = job.job_description;
+                document.getElementById("jobTitle").innerHTML = job.job_title;
+                document.getElementById("deadline").innerHTML = "<b>Deadline</b>\n" + job.application_deadline;
+                document.getElementById("salary").innerHTML ="<b>Salary</b>\n" + job.salary;
+                document.getElementById("description").innerHTML ="<b>Description</b>\n" + job.job_description;
             }
 
 
