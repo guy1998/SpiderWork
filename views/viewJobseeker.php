@@ -4,7 +4,7 @@ session_start();
 include "../controller/functions.php";
 include_once "../connector/connect.php";
 $viewable = fetchUser($_SESSION['viewableId']);
-$conn = connect('spiderwork', 'root', 'Aldrin/117');
+$conn = connect('spiderwork', 'root', '');
 $phoneNumberSql = "SELECT phone_number FROM phone_numbers WHERE person_id = :person_id";
 $phoneStmt = $conn->prepare($phoneNumberSql);
 try{
@@ -46,9 +46,22 @@ $seeker = fetchSeeker($viewable['userid']);
         </div>
         <div>
         <div id="buttonsDiv">
-            <button>Accept</button>
-            <button>Reject</button>
-            <button>Back</button>
+            <button onclick="addPositiveResponse()">Accept</button>
+            <button onclick="addNegativeResponse()">Reject</button>
+            <button onclick="goBack()">Back</button>
         </div>
+        <script>
+            const goBack = function(){
+                window.location.href = "../views/employer.php";
+            }
+
+            const addPositiveResponse = function(){
+                window.location.href = "../controller/respondApplication.php";
+            }
+
+            const addNegativeResponse = function(){
+                window.location.href = "../controller/respondNegatively.php";
+            }
+        </script>
     </body>
 </html>
