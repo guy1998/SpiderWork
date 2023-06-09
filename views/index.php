@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +12,7 @@
 
     <title>SpiderWork</title>
 </head>
+
 <body>
     <!-- navbar -->
     <nav class="navbar">
@@ -33,17 +35,15 @@
             FIND YOUR <br> <span> PERFECT JOB </span> <br> EASILY
         </h1>
     </header>
-    
+
     <!-- search -->
     <div class="search-wrapper">
-        <div class="search-box">
+        <form class="search-box" method="post" action="../controller/searchController.php">
             <div class="search-card">
-                <input class="search-input" type="text" placeholder="Job title or keywords">
+                <input class="search-input" type="text" name="searchResult" placeholder="Job title or keywords">
                 <button class="search-button">Search</button>
             </div>
-
-        </div>
-
+        </form>
     </div>
 
     <!-- filter box -->
@@ -59,7 +59,7 @@
                 <option>Job Function</option>
                 <option>IT</option>
                 <option>Management</option>
-                <option>Education</option>             
+                <option>Education</option>
             </select>
             <select class="filter-select" id="employment" name="employment">
                 <option>Employment Type</option>
@@ -96,26 +96,40 @@
         </div>
     </div>
     <section class="job-list" id="jobs">
-        <div class="job-card">
-            <div class="job-name">
-                <img class="job-profile" src="../images/tesla.svg">
-                <div class="job-detail">
-                    <h4>Tesla</h4>
-                    <h3>Mechanical Engineer</h3>
-                    <p>Lorem ipsum dolor sit, amet consectutar adipisicing elit.</p>
-                </div>
-            </div>
-            <div class="job-label">
-                <a class="label-a" href="#">HTML</a>
-                <a class="label-b" href="#">CSS</a>
-                <a class="label-c" href="#">Javascript</a>
-            </div>
-            <div class="job-posted">
-                Posted 2 mins ago
-            </div>
-        </div>
 
-        <div class="job-card">
+        <?php
+        $result = $_SESSION['results'];
+        $i = 0;
+        if (isset($result)) {
+            while (count($result) > $i) {
+        ?>
+
+                <div class="job-card">
+                    <div class="job-name">
+                        <img class="job-profile" src="../images/amazon.svg">
+                        <div class="job-detail">
+                            <h4><?php echo $_SESSION['companyName']; ?></h4>
+                            <h3><?php echo $result[$i]['job_title']; ?></h3>
+                            <p><?php echo $result[$i]['job_description']; ?></p>
+                        </div>
+                    </div>
+                    <div class="job-label">
+                        <a class="label-a" href="#">HTML</a>
+                        <a class="label-b" href="#">CSS</a>
+                        <a class="label-c" href="#">Javascript</a>
+                    </div>
+                    <div class="job-posted">
+                        Posted 2 mins ago
+                    </div>
+                </div>
+        <?php
+                $i += 1;
+            }
+        }
+        ?>
+
+
+        <!-- <div class="job-card">
             <div class="job-name">
                 <img class="job-profile" src="../images/ebay.svg">
                 <div class="job-detail">
@@ -189,7 +203,7 @@
             <div class="job-posted">
                 Posted an hour ago
             </div>
-        </div>
+        </div> -->
         <button class="job-more">More List</button>
     </section>
 
@@ -198,14 +212,15 @@
         <div class="join-detail">
             <h1 class="section-title">LETS START YOUR NEW JOB WITH US</h1>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure laboriosam in suscipit at
-            atque reprehenderit esse quasi accusantium.</p>
+                atque reprehenderit esse quasi accusantium.</p>
         </div>
         <button class="join-button">Join Now</button>
     </section>
 
     <!-- featured company -->
     <section class="featured" id="companies">
-        
+
     </section>
 </body>
+
 </html>
