@@ -27,6 +27,7 @@ if ($person) {
     echo "Hello person";
     if ($person['password'] == $password) {
         $_SESSION['userid'] = $person['userid'];
+        $_SESSION['user_type'] = 'seeker';
         $seeker_query = "SELECT userid FROM jobseeker WHERE userid=:userid";
         $statement3 = $connect->prepare($seeker_query);
 
@@ -51,6 +52,7 @@ if ($person) {
     echo "Hello employer";
     if ($emp['password'] == $password) {
         $_SESSION['userid'] = $emp['employerId'];
+        $_SESSION['user_type'] = 'employer';
         header("Location: ../views/employer.php");
     } else {
         $log_in_errors['password'] = "Wrong password";

@@ -3,7 +3,7 @@
 session_start();
 include "../controller/functions.php";
 include_once "../connector/connect.php";
-$conn = connect('spiderwork', 'root', 'Aldrin/117');
+$conn = connect('spiderwork', 'root', '');
 if($_SESSION['user_type'] == "employer"){
   $current_user = fetchEmployer($_SESSION['userid']);
 }else{
@@ -49,7 +49,7 @@ if($_SESSION['user_type'] == "employer"){
         <div class="form-group">
             <?php if($_SESSION['user_type'] == "employer"): ?>
               <label for="surname">Owner Name</label>
-              <input type="text" id="surname1" name="surname" required value=<?php echo $current_user['companyName']; ?>>
+              <input type="text" id="surname1" name="surname" required value=<?php echo $current_user['ownerName']; ?>>
             <?php else: ?>
               <label for="surname">Surname</label>
               <input type="text" id="surname" name="surname" required value=<?php echo $current_user['surname']; ?>>
@@ -58,7 +58,7 @@ if($_SESSION['user_type'] == "employer"){
         <?php if($_SESSION['user_type'] == "employer"): ?>
           <div class="form-group">
             <label for="surname">Owner Surname</label>
-            <input type="text" id="surname2" name="surname" required value=<?php echo $current_user['companyName']; ?>>
+            <input type="text" id="surname2" name="surname" required value=<?php echo $current_user['ownerSurname']; ?>>
           </div>
         <?php endif; ?>
         <?php 
@@ -70,7 +70,7 @@ if($_SESSION['user_type'] == "employer"){
           }catch(PDOException $error){
             var_dump($error);
           }
-          $currentPhoneNumber = $phoneStatement->fetch();
+          $currentPhoneNumber = $phoneStatement->fetchAll();
         }else{
           $retreivePhone = "SELECT phoneNumber FROM employerphone WHERE employerId = :userid";
           $phoneStatement = $conn->prepare($retreivePhone);
@@ -79,12 +79,12 @@ if($_SESSION['user_type'] == "employer"){
           }catch(PDOException $error){
             var_dump($error);
           }
-          $currentPhoneNumber =$phoneStatement->fetch();
+          $currentPhoneNumber =$phoneStatement->fetchAll();
         }
         ?>
         <div class="form-group">
           <label for="phone">Phone number</label>
-          <input type="text" id="phone" name="phone" required value="<?php echo $currentPhoneNumber[0]; ?>">
+          <input type="text" id="phone" name="phone" required value="<?php echo $currentPhoneNumber[0][0] ?>">
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
@@ -94,10 +94,6 @@ if($_SESSION['user_type'] == "employer"){
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required value=<?php echo $current_user['username']; ?>>
         </div>
-        <!-- <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </div> -->
       </div>
       <div class="right-section">
         <h2 class="section-heading">System Settings</h2>
@@ -125,75 +121,10 @@ if($_SESSION['user_type'] == "employer"){
     </div>
     <div class="button-section">
       <button class="save-button" onclick="modifyUser('<?php echo $_SESSION['user_type']; ?>')">Save</button>
-      <button class="save-button" onclick=""></button>
       <button class="delete-account-button">Delete Account</button>
     </div>
   </div>
-  <script>
-    const modifyUser = function(usertype){
-
-      if(usertype === "employer"){
-
-                let companyName = document.getElementById('name1').value;
-                let ownerName = document.getElementById('surname1').value;
-                let ownerSurname = document.getElementById('surname2').value;
-                let phone = document.getElementById("phone").value;
-                let email = document.getElementById("email").value;
-                let username = document.getElementById("username").value;
-
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../controller/modifyUser.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                    console.log('Session variable set successfully');
-                    } else {
-                    console.error('Error setting session variable');
-                    }
-                }
-                };
-                var data = 'username=' + encodeURIComponent(username) +
-           '&companyName=' + encodeURIComponent(companyName) +
-           '&ownerName=' +encodeURIComponent(ownerName) +
-           '&ownerSurname=' + encodeURIComponent(ownerSurname) +
-           '&email=' + encodeURIComponent(email) +
-           '&phone=' + encodeURIComponent(phone);
-            console.log(data);
-           xhr.send(data);
-      }else{
-            let name = document.getElementById("name").value;
-            let surname = document.getElementById("surname").value;
-            let phone = document.getElementById("phone").value;
-            let email = document.getElementById("email").value;
-            let username = document.getElementById("username").value;
-            if(name && surname && phone && email && username){
-              var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../controller/modifyUser.php', true);
-                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                    console.log('Session variable set successfully');
-                    } else {
-                    console.error('Error setting session variable');
-                    }
-                }
-                };
-                var data = 'username=' + encodeURIComponent(username) +
-           '&name=' + encodeURIComponent(name) +
-           '&surname=' + encodeURIComponent(surname) +
-           '&email=' + encodeURIComponent(email) +
-           '&phone=' + encodeURIComponent(phone);
-           console.log("Before data");
-            console.log(data)
-            console.log("After data");
-            xhr.send(data);
-            
-      }
-    }
-  }
-  </script>
+  <script src="../scripts/profile.js"></script>
 </body>
 
 </html>

@@ -1,21 +1,22 @@
 <?php
 
 session_start();
+$conn = require_once("../connector/connect.php");
 
 if (
-    isset($_POST['username']) &&
-    isset($_POST['name']) &&
-    isset($_POST['surname']) &&
-    isset($_POST['email']) &&
-    isset($_POST['phone'])
+   isset($_SESSION['newUsername']) &&
+   isset($_SESSION['newEmail']) &&
+   isset($_SESSION['newPhone']) &&
+   isset($_SESSION['newName']) &&
+   isset($_SESSION['newSurname'])
 ){
 $userid = $_SESSION['userid'];
 
-$newName = $_POST['name'];
-$newSurname = $_POST['surname'];
-$newEmail = $_POST['email'];
-$newUsername = $_POST['username'];
-$newPhone = $_POST['phone'];
+$newName = $_SESSION['newName'];
+$newSurname = $_SESSION['newSurname'];
+$newEmail = $_SESSION['newEmail'];
+$newUsername = $_SESSION['newUsername'];
+$newPhone = $_SESSION['newPhone'];
 
 $stmt = $conn->prepare("UPDATE person SET name = :name, surname = :surname, email = :email, username = :username WHERE userid = :userid");
 try{
@@ -30,9 +31,9 @@ try{
     var_dump($error);
 }
 
-$stmt1 = $conn->prepare("UPDATE phone_numbers SET phone_number = ? WHERE person_id = ?");
-$stmt1->bind_param("si", $newPhone, $userid);
-$stmt1->execute();
+$stmt1 = $conn->prepare("UPDATE phone_numbers SET phone_number = :phone WHERE person_id = :id");
+
+$stmt1->execute(["phone"=>$newPhone, "id"=>$userid]);
 
 if ($stmt->affected_rows > 0) {
     echo "User information updated successfully.";
@@ -43,30 +44,48 @@ if ($stmt->affected_rows > 0) {
 header("Location: ../views/jobseeker.php");
 
 }else if(
-    $_SESSION['user_type']=="employer" &&
-    isset($_POST['username']) &&
-    isset($_POST['companyName']) &&
-    isset($_POST['ownerName']) &&
-    isset($_POST['ownerSurname']) &&
-    isset($_POST['email']) &&
-    isset($_POST['phone'])
+    $_SESSION['user_type']=="employer" && 
+    isset($_SESSION['newUsername']) &&
+    isset($_SESSION['newEmail']) &&
+    isset($_SESSION['newPhone']) &&
+    isset($_SESSION['newCompanyName']) &&
+    isset($_SESSION['newOwnerSurname']) && 
+    isset($_SESSION['newOwnerName'])
 ){
     $userid = $_SESSION['userid'];
 
-    $newCompanyName = $_POST['companyName'];
-    $newOwnerName = $_POST['ownerName'];
-    $newOwnerSurname = $_POST['ownerSurname'];
-    $newEmail = $_POST['email'];
-    $newUsername = $_POST['username'];
-    $newPhone = $_POST['phone'];
+    $newCompanyName = $_SESSION['newCompanyName'];
+    $newOwnerName = $_SESSION['newOwnerName'];
+    $newOwnerSurname = $_SESSION['newOwnerSurname'];
+    $newEmail = $_SESSION['newEmail'];
+    $newUsername = $_SESSION['newUsername'];
+    $newPhone = $_SESSION['newPhone'];
     
-    $stmt = $conn->prepare("UPDATE employer SET companyName = ?, ownerName = ?, ownerSurname = ?, email = ?, username = ? WHERE employerid = ?");
-    $stmt->bind_param("sssssi", $newCompanyName, $newOwnerName, $newEmail, $newUsername, $userid);
-    $stmt->execute();
+    $stmt = $conn->prepare("UPDATE employer SET companyName = :compName, ownerName = :ownerName, ownerSurname = :ownerSurname, email = :email, username = :username WHERE employerid = :empId");
     
-    $stmt1 = $conn->prepare("UPDATE employerphone SET phoneNumber = ? WHERE employerid = ?");
-    $stmt1->bind_param("si", $newPhone, $userid);
-    $stmt1->execute();
+    try{
+        $stmt->execute([
+            'compName'=>$newCompanyName,
+            'ownerName'=>$newOwnerName,
+            'ownerSurname'=>$newOwnerSurname,
+            'email'=>$newEmail,
+            'username'=>$newUsername,
+            'empId'=>$userid
+        ]);
+    }catch(PDOException $error){
+        var_dump($error);
+    }
+    
+    $stmt1 = $conn->prepare("UPDATE employerphone SET phoneNumber = :phone WHERE employerid = :empId");
+
+    try{
+        $stmt1->execute([
+            'phone'=>$newPhone,
+            'empId'=>$userid
+        ]);
+    }catch(PDOException $error){
+        var_dump($error);
+    }
     
     if ($stmt->affected_rows > 0) {
         echo "User information updated successfully.";
@@ -76,6 +95,6 @@ header("Location: ../views/jobseeker.php");
 
 header("location: ../views/employer.php");
 }else{
-    header("location: ../views/jobseeker.php");
+    //header("location: ../views/jobseeker.php");
     echo "Something went terribly wrong mate";
 }

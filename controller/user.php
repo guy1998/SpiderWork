@@ -9,6 +9,7 @@ $email = isset($_POST['email']) ? filter_var($_POST['email'], FILTER_VALIDATE_EM
 $birthday = isset($_POST['birthday']) ? $_POST['birthday'] : '';
 $username = isset($_POST['username']) ? $_POST['username'] : '';
 $password = isset($_POST['password']) ? $_POST['password'] : '';
+$phone = isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : "";
 
 // if (preg_match('/^[a-zA-Z0-9_]{3,20}$/', $username)) {
 //     // Username is valid
@@ -46,9 +47,11 @@ $experience = "Employer: ".$_POST['empName']."\nWorked for: ".$_POST['years']." 
 $education = "University: ".$_POST['school'];
 
 $sql2 = "INSERT INTO JobSeeker VALUES ((SELECT COUNT(*) FROM Person), :field, :experience, :education, 'default')";
+$sql3 = "INSERT INTO phone_numbers VALUES (SELECT COUNT(*) FROM person), :phone";
 
 $statement=$connection->prepare($sql);
 $statement2 = $connection->prepare($sql2);
+$statement3 = $connection->prepare($sql3);
 
 try {
     $statement->execute([
@@ -66,20 +69,24 @@ try {
         'education' => $education
     ]);
 
+    $statement3->execute([
+        'phone'=>$phone
+    ]);
+
 
 } catch (PDOException $error) {
     var_dump($error);
 }
 
-$sql3 = "SELECT userid FROM person WHERE username = :username";
-$statement3 = $connection->prepare($sql3);
+$sql4 = "SELECT userid FROM person WHERE username = :username";
+$statement4 = $connection->prepare($sql3);
 try{
-    $statement3->execute(['username' => $username]);
+    $statement4->execute(['username' => $username]);
 }catch (PDOException $error) {
     var_dump($error);
 }
 
-$result = $statement3->fetchAll();
+$result = $statement4->fetchAll();
 $_SESSION['userid'] = $result[0]['userid'];
 
 header("Location: ../views/jobseeker.php");
