@@ -366,21 +366,21 @@ $current_emp = fetchEmployer($_SESSION['userid']);
 
     <script src="../scripts/userview.js"></script>
     <script>
-        const redirectToProfileChange = function() {
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '../controller/set_session.php', true);
-            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-            xhr.onreadystatechange = function() {
-                if (xhr.readyState === XMLHttpRequest.DONE) {
-                    if (xhr.status === 200) {
-                        console.log('Session variable set successfully');
-                    } else {
-                        console.error('Error setting session variable');
-                    }
-                }
-            };
-            xhr.send('user_type=employer');
-        }
+        // const redirectToProfileChange = function() {
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open('POST', '../controller/set_session.php', true);
+        //     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        //     xhr.onreadystatechange = function() {
+        //         if (xhr.readyState === XMLHttpRequest.DONE) {
+        //             if (xhr.status === 200) {
+        //                 console.log('Session variable set successfully');
+        //             } else {
+        //                 console.error('Error setting session variable');
+        //             }
+        //         }
+        //     };
+        //     xhr.send('user_type=employer');
+        // }
 
         function redirectToPage(pageURL, id, listing_id) {
             console.log(listing_id);

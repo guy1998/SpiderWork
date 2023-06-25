@@ -113,8 +113,8 @@ body {
 
 #name1{
   position: relative;
-  top: 1vh;
-  left: -2vw;
+  top: -4vh;
+  left: 1.5vw;
 }
 
 #surname{
@@ -126,7 +126,13 @@ body {
 #surname1{
   position: relative;
   top: 1vh;
-  left: -3.5vw;
+  left: -5.5vw;
+}
+
+#surname2{
+  position: relative;
+  top: -4vh;
+  left: 1.5vw;
 }
 
 #phone{
