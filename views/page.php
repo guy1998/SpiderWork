@@ -76,11 +76,10 @@ $conn = connect('spiderwork', 'root', '');
         <main>
             <article class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
-                <button class="applyLink"><a href="../controller/application.php">Apply Now</a></button>
-                <?php if(isset($_SESSION['application_error'])): ?>
-                <p style="color: red;"><?php echo $_SESSION['application_error']; ?></p>
-                <?php unset($_SESSION['application_error']); ?>
-                <?php endif; ?>
+                <button class="applyLink" onclick="apply()"><a>Apply Now</a></button>
+
+                <div id="notification"></div>
+
                 <img class="jobImg" src="../images/team.png" alt="profile">
                 <div>
                     <ul class="hoursAndSalary">
@@ -163,6 +162,8 @@ $conn = connect('spiderwork', 'root', '');
                 }
                 };
                 xhr.send('listing_id=' + id); 
+
+                document.getElementById("notification").innerHTML = "";
                 document.getElementById("jobTitle").innerHTML = job.job_title;
                 document.getElementById("deadline").innerHTML = "<b>Deadline</b>\n" + job.application_deadline;
                 document.getElementById("salary").innerHTML ="<b>Salary</b>\n" + job.salary;
@@ -185,6 +186,16 @@ $conn = connect('spiderwork', 'root', '');
                     navItem.classList.remove("selected");
                 }
             }
+        }
+        
+        const apply = function() {
+            //window.location.replace("../controller/application.php");
+
+            fetch('../controller/application.php')
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("notification").innerHTML = data;
+                    });
         }
     </script>
 </body>

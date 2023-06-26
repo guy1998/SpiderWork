@@ -18,8 +18,12 @@ try{
         'listing_id'=>$listing_id,
         'current_date'=>$current_date
     ]);
+
+    $_SESSION['application_validity'] = "Your application was submitted successfully.";
+
 }catch(PDOException $error){
-    $_SESSION['application_error'] = "You have already applied.";
+    $_SESSION['application_validity'] = "You have already applied.";
 }
 
-header("location: ../views/page.php");
+echo $_SESSION['application_validity'];
+//header("location: ../views/page.php");
