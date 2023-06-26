@@ -213,7 +213,7 @@ $current_emp = fetchEmployer($_SESSION['userid']);
 
     <nav id="menu">
         <ul id="options">
-            <li><a href="#home">Home</a></li>
+            <li><a href="../views/index.php">Home</a></li>
             <li><a href="#employers">Employees</a></li>
         </ul>
         <ul id="sNp">
@@ -253,7 +253,10 @@ $current_emp = fetchEmployer($_SESSION['userid']);
         $j = 0;
         while ($j < count($seekers)) { ?>
             <div class="eachUser"><img src=<?php echo $seekers[$j]['profilepic']; ?> width="30" height="30">
-                <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button>View</button>
+                <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button onclick="redirectToPage
+                    (
+                        '../views/inviteview.php', <?php echo $seekers[$j]['userid']?>, ''
+                    )">View</button>
             </div>
         <?php $j++;
         }

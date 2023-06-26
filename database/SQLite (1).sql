@@ -84,6 +84,15 @@ CREATE TABLE application (
   application_date DATE,
   FOREIGN KEY (userid) REFERENCES person(userid),
   FOREIGN KEY (employerid) REFERENCES employer(employerid),
-  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id),
+  PRIMARY KEY (userid, listing_id)
+);
+
+CREATE TABLE invitation (
+  userid INT,
+  employerid INT,
+  FOREIGN KEY (userid) REFERENCES person(userid),
+  FOREIGN KEY (employerid) REFERENCES employer(employerid),
+  PRIMARY KEY (userid, employerid)
 );
 

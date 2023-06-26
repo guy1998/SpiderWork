@@ -23,10 +23,10 @@ $conn = connect('spiderwork', 'root', '');
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
             <ul>
-                <li><a class="navItem" href="#">Job Search</a></li>
-                <li><a class="navItem" href="#">Career Guide</a></li>
+                <li><a class="navItem" href="../views/index.php">Home</a></li>
+                <li><a class="navItem" href="../views/log-in.php">My Feed</a></li>
                 <li>|</li>
-                <li><a class="navItem" href="#">For Employers</a></li>
+                <li><a class="navItem" href="../views/cvgenerator.php" target="_blank">Resume</a></li>
             </ul>
         </nav>
         <?php endif; ?>
@@ -35,12 +35,11 @@ $conn = connect('spiderwork', 'root', '');
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
             <ul>
-                <li><a class="navItem" href="#">Job Search</a></li>
-                <li><a class="navItem" href="#">Career Guide</a></li>
-                <li><a class="navItem" href="#">Login</a></li>
-                <li><a class="active" href="#">Register</a></li>
+                <li><a class="navItem" href="../views/index.php">Home</a></li>
+                <li><a class="navItem" href="../views/log-in.php">Login</a></li>
+                <li><a class="active" href="../views/log-in.php">Register</a></li>
                 <li>|</li>
-                <li><a class="navItem" href="#">For Employers</a></li>
+                <li><a class="navItem" href="../views/cvgenerator.php" target="_blank">Resume</a></li>
             </ul>
         </nav>
         <?php endif; ?>
@@ -74,18 +73,28 @@ $conn = connect('spiderwork', 'root', '');
             </div>
         </section>
         <main>
-            <article class="jobArticle">
+            <div id="motivation">
+                <h3>Find Job Descriptions Here</h3>
+                <ul style="list-style-type: circle;">
+                    <li>Check out the Job information</li>
+                    <li>Study those salaries.</li>
+                    <li>When you feel ready, click "Apply Now" to let the employer know that you are interested.</li>
+                </ul>
+                <h2>Remember: Your Journey starts here!</h2>
+            </div>
+            <article id="jobArticle" style="display: none;" class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
-                <button class="applyLink"><a href="../controller/application.php">Apply Now</a></button>
+                <button class="applyLink" onclick="apply()"><a>Apply Now</a></button>
+
+                <div id="notification"></div>
+
                 <img class="jobImg" src="../images/team.png" alt="profile">
                 <div>
                     <ul class="hoursAndSalary">
                         <li class="info" id="deadline">#Hours per week#</li>
                         <li class="info" id="salary">#Salary#</li>
                     </ul>
-                </div>
-                <div>
-                    <p class="info" id="description">Job Description</p>
+                    <p id="description">Job Description</p>
                 </div>
             </article>
         </main>
@@ -159,6 +168,10 @@ $conn = connect('spiderwork', 'root', '');
                 }
                 };
                 xhr.send('listing_id=' + id); 
+
+                document.getElementById("motivation").style.display = "none";                
+                document.getElementById("jobArticle").style.display = "block";
+                document.getElementById("notification").innerHTML = "";
                 document.getElementById("jobTitle").innerHTML = job.job_title;
                 document.getElementById("deadline").innerHTML = "<b>Deadline</b>\n" + job.application_deadline;
                 document.getElementById("salary").innerHTML ="<b>Salary</b>\n" + job.salary;
@@ -181,6 +194,14 @@ $conn = connect('spiderwork', 'root', '');
                     navItem.classList.remove("selected");
                 }
             }
+        }
+        
+        const apply = function() {
+            fetch('../controller/application.php')
+                    .then(response => response.text())
+                    .then(data => {
+                        alert(data);
+                    });
         }
     </script>
 </body>

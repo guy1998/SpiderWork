@@ -18,7 +18,7 @@
     <nav class="navbar">
         <h2 class="navbar-logo"><a href="#">SPIDERWORK</a></h2>
         <div class="navbar-menu">
-            <a href="#jobs">Jobs</a>
+            <a href="../views/page.php">Jobs</a>
             <a href="../views/cvgenerator.php" target="_blank">Resume</a>
             <a href="../views/log-in.php">Sign In</a>
         </div>
