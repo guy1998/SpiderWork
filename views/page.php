@@ -74,7 +74,16 @@ $conn = connect('spiderwork', 'root', '');
             </div>
         </section>
         <main>
-            <article class="jobArticle">
+            <div id="motivation">
+                <h3>Find Job Descriptions Here</h3>
+                <ul style="list-style-type: circle;">
+                    <li>Check out the Job information</li>
+                    <li>Study those salaries.</li>
+                    <li>When you feel ready, click "Apply Now" to let the employer know that you are interested.</li>
+                </ul>
+                <h2>Remember: Your Journey starts here!</h2>
+            </div>
+            <article id="jobArticle" style="display: none;" class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
                 <button class="applyLink" onclick="apply()"><a>Apply Now</a></button>
 
@@ -162,7 +171,8 @@ $conn = connect('spiderwork', 'root', '');
                 }
                 };
                 xhr.send('listing_id=' + id); 
-
+                
+                document.getElementById("jobArticle").style.display = "block";
                 document.getElementById("notification").innerHTML = "";
                 document.getElementById("jobTitle").innerHTML = job.job_title;
                 document.getElementById("deadline").innerHTML = "<b>Deadline</b>\n" + job.application_deadline;
@@ -189,8 +199,6 @@ $conn = connect('spiderwork', 'root', '');
         }
         
         const apply = function() {
-            //window.location.replace("../controller/application.php");
-
             fetch('../controller/application.php')
                     .then(response => response.text())
                     .then(data => {
