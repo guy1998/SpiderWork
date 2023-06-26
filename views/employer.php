@@ -221,10 +221,8 @@ $current_emp = fetchEmployer($_SESSION['userid']);
             <li><button type="button" onclick="dropdownOptions()"></button></li>
             <div id="optionsMenu">
                 <ul id="optionLinks">
-                    <li><a href="../views/profileCustomization.php" onclick="redirectToProfileChange()">My account</a>
-                    </li>
-                    <li><a href="">Settings</a></li>
-                    <li><a href="../controller/logOutController.php">Log out</a></li>
+                    <li id="customize"><a href="../views/profileCustomization.php">My account</a></li>
+                    <li id="logOut"><a href="../controller/logOutController.php">Log out</a></li>
                 </ul>
             </div>
 
