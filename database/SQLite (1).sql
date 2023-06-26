@@ -84,6 +84,8 @@ CREATE TABLE application (
   application_date DATE,
   FOREIGN KEY (userid) REFERENCES person(userid),
   FOREIGN KEY (employerid) REFERENCES employer(employerid),
-  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id)
+  FOREIGN KEY (listing_id) REFERENCES joblisting(listing_id),
+  PRIMARY KEY (userid, listing_id)
+  WITH THE HELP OF COLUMN userid and listing_id
 );
 

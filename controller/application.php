@@ -19,7 +19,7 @@ try{
         'current_date'=>$current_date
     ]);
 }catch(PDOException $error){
-    
+    $_SESSION['application_error'] = "You have already applied.";
 }
 
 header("location: ../views/page.php");

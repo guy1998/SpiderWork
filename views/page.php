@@ -77,6 +77,10 @@ $conn = connect('spiderwork', 'root', '');
             <article class="jobArticle">
                 <h2 class="jobTitle" id="jobTitle">Job Title</h2>
                 <button class="applyLink"><a href="../controller/application.php">Apply Now</a></button>
+                <?php if(isset($_SESSION['application_error'])): ?>
+                <p style="color: red;"><?php echo $_SESSION['application_error']; ?></p>
+                <?php unset($_SESSION['application_error']); ?>
+                <?php endif; ?>
                 <img class="jobImg" src="../images/team.png" alt="profile">
                 <div>
                     <ul class="hoursAndSalary">
