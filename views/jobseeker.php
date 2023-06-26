@@ -31,7 +31,7 @@ $seeker = fetchSeeker($_SESSION['userid']);
 
     <nav id="menu">
         <ul id="options">
-            <li><a href="#home">Home</a></li>
+            <li><a href="../views/index.php">Home</a></li>
             <li><a href="page.php">Jobs</a></li>
         </ul>
         <ul id="sNp">
@@ -87,6 +87,7 @@ $seeker = fetchSeeker($_SESSION['userid']);
             <div class="slider"></div>
         </nav>
         <section>
+            <div class="content content-1">
             <?php
             $getNotification = "SELECT * FROM application_response WHERE userid = :userid";
             $statement3 = $conn->prepare($getNotification);
@@ -135,6 +136,48 @@ $seeker = fetchSeeker($_SESSION['userid']);
             <?php endif; ?>
     </div>
     <div class="content content-2">
+        <?php 
+            $invitation_query = "SELECT * FROM invitation WHERE userid=:userid";
+            $invitation_stmt = $conn->prepare($invitation_query);
+            
+            try{
+                $invitation_stmt->execute([
+                    'userid'=>$_SESSION['userid']
+                ]);
+            }
+            catch(PDOException $error) {
+                var_dump($error);
+            }
+
+            $invitations = $invitation_stmt->fetchAll();
+
+            $cnt = 0;
+
+            while($cnt < count($invitations)) { 
+                $currEmp = "SELECT * FROM employer WHERE employerid = :employerid";
+                $statement4 = $conn->prepare($currEmp);
+
+                try {
+                    $statement4->execute(['employerid' => $invitations[$cnt]['employerid']]);
+                } catch (PDOException $error) {
+                    var_dump($error);
+                }
+                $nextEmp = $statement4->fetch();
+        ?> 
+
+                <div id="posts program" class="select">
+                    <div id="profImage">
+                    </div>
+                    <div>
+                        <img id="setting" src="../images/menu.png" width="15" height="15">
+                        <div id="texts">
+                            <p><strong><?php echo $nextEmp['companyName']; ?></strong></p>
+                            <p>You have been invited to view this employer.</p>
+                            <a href="employerInfo.php?id=<?php echo $nextEmp['employerId']; ?>"><button id="theLastThing">View</button></a>
+                        </div>
+                    </div>
+                </div>
+                <?php $cnt++;}?>
     </div>
     </div>
     </section>

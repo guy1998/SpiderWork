@@ -393,6 +393,21 @@ nav .slider {
     transition: all 0.3s ease;
 }
 
+#theLastThing {
+    background-color: purple;
+    height: 4vh;
+    width: 7vw;
+    border-radius: 7px;
+    border: none;
+    color: white;
+}
+
+#theLastThing:hover {
+    background-color: darkorchid;
+    cursor: pointer;
+}
+
+
 input[type="radio"] {
     display: none;
 }
