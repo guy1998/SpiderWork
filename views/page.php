@@ -23,10 +23,10 @@ $conn = connect('spiderwork', 'root', '');
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
             <ul>
-                <li><a class="navItem" href="#">Job Search</a></li>
-                <li><a class="navItem" href="#">Career Guide</a></li>
+                <li><a class="navItem" href="../views/index.php">Home</a></li>
+                <li><a class="navItem" href="../views/log-in.php">My Feed</a></li>
                 <li>|</li>
-                <li><a class="navItem" href="#">For Employers</a></li>
+                <li><a class="navItem" href="../views/cvgenerator.php" target="_blank">Resume</a></li>
             </ul>
         </nav>
         <?php endif; ?>
@@ -35,12 +35,11 @@ $conn = connect('spiderwork', 'root', '');
             <label class="logo">SpiderWork</label>
             <input class="searchBar" type="text" placeholder="Proffesion, Job Title or Keyword">
             <ul>
-                <li><a class="navItem" href="#">Job Search</a></li>
-                <li><a class="navItem" href="#">Career Guide</a></li>
-                <li><a class="navItem" href="#">Login</a></li>
-                <li><a class="active" href="#">Register</a></li>
+                <li><a class="navItem" href="../views/index.php">Home</a></li>
+                <li><a class="navItem" href="../views/log-in.php">Login</a></li>
+                <li><a class="active" href="../views/log-in.php">Register</a></li>
                 <li>|</li>
-                <li><a class="navItem" href="#">For Employers</a></li>
+                <li><a class="navItem" href="../views/cvgenerator.php" target="_blank">Resume</a></li>
             </ul>
         </nav>
         <?php endif; ?>
@@ -95,9 +94,7 @@ $conn = connect('spiderwork', 'root', '');
                         <li class="info" id="deadline">#Hours per week#</li>
                         <li class="info" id="salary">#Salary#</li>
                     </ul>
-                </div>
-                <div>
-                    <p class="info" id="description">Job Description</p>
+                    <p id="description">Job Description</p>
                 </div>
             </article>
         </main>
@@ -171,7 +168,8 @@ $conn = connect('spiderwork', 'root', '');
                 }
                 };
                 xhr.send('listing_id=' + id); 
-                
+
+                document.getElementById("motivation").style.display = "none";                
                 document.getElementById("jobArticle").style.display = "block";
                 document.getElementById("notification").innerHTML = "";
                 document.getElementById("jobTitle").innerHTML = job.job_title;
@@ -202,7 +200,7 @@ $conn = connect('spiderwork', 'root', '');
             fetch('../controller/application.php')
                     .then(response => response.text())
                     .then(data => {
-                        document.getElementById("notification").innerHTML = data;
+                        alert(data);
                     });
         }
     </script>
