@@ -19,7 +19,7 @@ try{
         'current_date'=>$current_date
     ]);
 }catch(PDOException $error){
-    var_dump($error);
+    
 }
 
 header("location: ../views/page.php");
