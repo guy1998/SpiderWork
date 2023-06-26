@@ -99,14 +99,16 @@ body{
 }
 
 #optionsMenu{
-    height: 0vh;
-    width: 10vw;
-    position: absolute;
-    left: 80vw;
-    top: 10vh; 
-    background-color: white;
-    transition: all ease-in-out 0.5s;
-    transition-delay: 0.3s;
+    height: 15vh;
+  width: 10vw;
+  position: absolute;
+  left: 80vw;
+  top: 10vh;
+  background-color: white;
+  border-radius: 10px;
+  /* transition: all ease-in-out 0.5s;
+  transition-delay: 0.3s; */
+  display: none;
 }
 
 #optionsMenu ul{
@@ -115,14 +117,18 @@ body{
 }
 
 #optionsMenu li{
-    margin-left: -2.5vw;
-    padding: 1vh 0px 0px 1vw;
-    width: 7vw;
+    margin-left: -2.6vw;
+  padding: 2vh 0px 0px 2vw;
+  width: 8vw;
+  height: 5vh;
+  text-align: justify;
+  align-items: center;
 }
 
-#optionsMenu{
-    --borderCustom: 0vw;
-}
+
+#optionsMenu {
+    --triangleDisplay: none;
+  }
 
 #optionsMenu::before{
     content: "";
@@ -133,14 +139,30 @@ body{
     top: -3vh;
     left: 40%;
     border-left: 1.5vh solid transparent;
-	border-right: 1.5vh solid transparent;
-	border-bottom: var(--borderCustom) solid white;
-    transition: all ease-in-out 0.5s;
+    border-right: 1.5vh solid transparent;
+    border-bottom: 2vw solid white;
+    display: var(--triangleDisplay);
 }
 
-#optionsMenu a{
+#optionsMenu a {
     text-decoration: none;
-}
+    color: #6E07FF;
+  }
+  
+  #customize{
+    background-image: url("../images/myprofile.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 25px;
+    border-bottom: 1px solid #6E07FF;
+  }
+  
+  #logOut{
+    background-image: url("../images/logouticon.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 25px;
+  }
 
 #feed li{
     display: flex;

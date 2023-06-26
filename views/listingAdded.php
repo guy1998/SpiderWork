@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 
     $response = mysqli_query($dbc, $query);
     if ($response)
-        header("Location:success.php");
+        header("Location:employer.php");
     else
         echo mysqli_error($dbc);
 }
