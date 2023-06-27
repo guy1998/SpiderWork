@@ -41,3 +41,11 @@ Both users can also generate their cv and can also change their profile informat
 -Changing profile picture
 -Dynamic search bars
 -Searching by job title
+
+# Contacts
+ftafciu21@epoka.edu.al
+acifliku21@epoka.edu.al
+lertekin21@epoka.edu.al
+dkreci21@epoka.edu.al
+akasolli21@epoka.edu.al
+oalsafarti21@epoka.edu.al
