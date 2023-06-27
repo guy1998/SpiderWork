@@ -13,7 +13,12 @@ $phone = isset($_POST['phone']) ? $_POST['phone'] : '';
 $fd = isset($_POST['fd']) ? $_POST['fd'] : '';
 $field = isset($_POST['field']) ? $_POST['field'] : '';
 $username = isset($_POST['username']) ? $_POST['username'] : '';
-$password = isset($_POST['password']) ? $_POST['password'] : '';
+$password1 = isset($_POST['password']) ? $_POST['password'] : '';
+include_once ("../controller/functions.php");
+
+if(checkIfExist($username)){
+    header("Location: ../views/userExist.php");
+}else{
 
 $sql = "INSERT INTO employer (contactName, contactSurname, companyName, ownerName, ownerSurname, field, email, username, password, foundingDate, profilepic) VALUES (:contactName, :contactSurname, :companyName, :ownerName, :ownerSurname, :field, :email, :username, :password, :foundingDate, '../images/defaultUser.png')";
 $phone_sql = "INSERT INTO employerphone VALUES ((SELECT COUNT(*) FROM employer), :phone)";
@@ -30,7 +35,7 @@ try{
         'ownerSurname'=>$owner_surname,
         'field'=>$field,
         'email'=>$email,
-        'password'=>$password,
+        'password'=>$password1,
         'username'=>$username,
         'foundingDate'=>$fd
     ]);
@@ -52,7 +57,8 @@ try{
 
 $result = $statement3->fetchAll();
 $_SESSION['userid'] = $result[0]['employerId'];
-
-echo $_SESSION['userid'];
+$_SESSION['user_type'] = "employer";
 
 header("Location: ../views/employer.php");
+
+}

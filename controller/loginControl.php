@@ -4,6 +4,7 @@ session_start();
 
 $connect = require_once "../connector/connect.php";
 
+if(isset($_POST['username']) && isset($_POST['password'])){
 $username = $_POST['username'];
 $password = $_POST['password'];
 
@@ -24,10 +25,8 @@ $log_in_errors = [];
 $person = $statement1->fetch();
 $emp = $statement2->fetch();
 if ($person) {
-    echo "Hello person";
     if ($person['password'] == $password) {
         $_SESSION['userid'] = $person['userid'];
-        $_SESSION['user_type'] = 'seeker';
         $seeker_query = "SELECT userid FROM jobseeker WHERE userid=:userid";
         $statement3 = $connect->prepare($seeker_query);
 
@@ -39,24 +38,24 @@ if ($person) {
         }
 
         $check = $statement3->fetch();
-
-        if ($check) {
-            header("Location: ../views/jobseeker.php");
-        } else {
-            header("Location: ../views/recruiter.php");
-        }
+        $_SESSION['user_type'] = 'seeker';
+        header("Location: ../views/jobseeker.php");
     } else {
-        $log_in_errors['password'] = "Wrong password";
+        $log_in_errors['error'] = "Wrong password";
+        require_once "../views/log-in.php";
     }
 } else if ($emp) {
-    echo "Hello employer";
     if ($emp['password'] == $password) {
         $_SESSION['userid'] = $emp['employerId'];
         $_SESSION['user_type'] = 'employer';
         header("Location: ../views/employer.php");
     } else {
-        $log_in_errors['password'] = "Wrong password";
+        $log_in_errors['error'] = "Wrong password";
+        require_once "../views/log-in.php";
     }
 } else {
-    header("Location: ../views/log-in.php");
+    $log_in_errors['error'] = "It seems this user exits!";
+    require_once "../views/log-in.php";
+}
+
 }

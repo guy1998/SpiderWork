@@ -214,7 +214,7 @@ $current_emp = fetchEmployer($_SESSION['userid']);
     <nav id="menu">
         <ul id="options">
             <li><a href="../views/index.php">Home</a></li>
-            <li><a href="#employers">Employees</a></li>
+            <li><a href="../views/page.php">Jobs</a></li>
         </ul>
         <ul id="sNp">
             <li><input type="text" placeholder="Search..."></li>
@@ -253,8 +253,7 @@ $current_emp = fetchEmployer($_SESSION['userid']);
         $j = 0;
         while ($j < count($seekers)) { ?>
             <div class="eachUser"><img src=<?php echo $seekers[$j]['profilepic']; ?> width="30" height="30">
-                <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button onclick="redirectToPage
-                    (
+                <p><?php echo $seekers[$j]['name'] . " " . $seekers[$j]['surname']; ?></p><button onclick="redirectToPage(
                         '../views/inviteview.php', <?php echo $seekers[$j]['userid']?>, ''
                     )">View</button>
             </div>
@@ -399,7 +398,9 @@ $current_emp = fetchEmployer($_SESSION['userid']);
             };
             let data = "viewable=" + encodeURIComponent(id) + "&listing_id=" + listing_id
             xhr.send(data);
-            window.location.href = pageURL;
+            setTimeout(() => {
+                window.location.href = pageURL;
+            }, 500);
         }
     </script>
 </body>

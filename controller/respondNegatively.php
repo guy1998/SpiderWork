@@ -4,7 +4,7 @@ session_start();
 
 include_once "../connector/connect.php";
 //TODO: Change the null
-$sql = "INSERT INTO application_response VALUES (:listing_id, :userid, :employerid, NULL, 1)";
+$sql = "INSERT INTO application_response VALUES (:listing_id, :userid, :employerid, NULL, 0)";
 $sql2 = "DELETE FROM application WHERE userid=:userid AND listing_id=:listing_id";
 
 $conn = connect('spiderwork', 'root', '');

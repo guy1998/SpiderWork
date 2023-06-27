@@ -137,8 +137,8 @@ body {
 
 #phone{
   position: relative;
-  top: -4vh;
-  left: 1.5vw;
+  top: 1vh;
+  left: -7vw;
 }
 
 #email{
@@ -221,3 +221,4 @@ button {
   background: #ccb3ff;
   font-size: 15px;
 }
+

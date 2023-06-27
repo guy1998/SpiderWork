@@ -4,7 +4,7 @@ session_start();
 include "../controller/functions.php";
 include_once "../connector/connect.php";
 $viewable = fetchUser($_SESSION['viewableId']);
-$conn = connect('spiderwork', 'root', '');
+$conn = connect('spiderwork', 'root', 'Aldrin/117');
 $phoneNumberSql = "SELECT phone_number FROM phone_numbers WHERE person_id = :person_id";
 $phoneStmt = $conn->prepare($phoneNumberSql);
 try{
@@ -13,7 +13,7 @@ try{
     var_dump($error);
 }
 
-$current_phone_number = $phoneStmt->fetch();
+$current_phone_number = $phoneStmt->fetch()[0];
 
 $seeker = fetchSeeker($viewable['userid']);
 

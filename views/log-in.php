@@ -1,8 +1,8 @@
 <?php
 
 session_start();
-if(isset($_SESSION['userid'])) {
-    if(isset($_SESSION['companyName'])){
+if(isset($_SESSION['user_type'])) {
+    if($_SESSION['user_type'] == "employer"){
         header("Location: employer.php");
         exit;
     }
@@ -39,6 +39,9 @@ if(isset($_SESSION['userid'])) {
         <h1>SpiderWork</h1>
         <input type="text"  placeholder="username" name="username"><br>
         <input type = "password"  placeholder="password" name="password"><br>
+        <?php if(isset($log_in_errors['error'])): ?>
+            <p style="color: red; margin-left: 8vw;"><?php echo $log_in_errors['error']; ?></p>
+        <?php endif; ?>
         <input type="submit" id="submitButton" value="Log-In" autofocus>
     </form>
     <button id="directSign" onclick="activateSignUp()">Sign-Up</button>

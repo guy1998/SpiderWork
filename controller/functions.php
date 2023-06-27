@@ -1,6 +1,6 @@
 <?php
 
-include "../connector/connect.php";
+include_once "../connector/connect.php";
 $dbName = 'spiderwork';
 $user = 'root';
 $password = '';
@@ -70,3 +70,26 @@ function fetchEmployer($employerid)
     $emp = $statement->fetch();
     return $emp;
 }
+
+function checkIfExist($username1){
+    $connection = connect('spiderwork', 'root', '');
+    $sql = "SELECT * FROM employer WHERE username=:username";
+    $sql2 = "SELECT * FROM person WHERE username=:username";
+    $stmt = $connection->prepare($sql);
+    $stmt2 = $connection->prepare($sql2);
+    try{
+        $stmt->execute(['username'=>$username1]);
+        $stmt2->execute(['username'=>$username1]);
+    }catch(PDOException $error){
+        return false;
+    }
+    $outcome1 = $stmt->fetchAll();
+    $outcome2 = $stmt2->fetchAll();
+
+    if(empty($outcome1) || empty($outcome2)){
+        return false;
+    }
+    
+    return true;
+}
+
