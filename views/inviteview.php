@@ -4,7 +4,7 @@ session_start();
 include "../controller/functions.php";
 include_once "../connector/connect.php";
 $viewable = fetchUser($_SESSION['viewableId']);
-$conn = connect('spiderwork', 'root', 'Aldrin/117');
+$conn = connect('spiderwork', 'root', '');
 $phoneNumberSql = "SELECT phone_number FROM phone_numbers WHERE person_id = :person_id";
 $phoneStmt = $conn->prepare($phoneNumberSql);
 try{

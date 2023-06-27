@@ -86,7 +86,7 @@ function checkIfExist($username1){
     $outcome1 = $stmt->fetchAll();
     $outcome2 = $stmt2->fetchAll();
 
-    if(empty($outcome1) || empty($outcome2)){
+    if(empty($outcome1) && empty($outcome2)){
         return false;
     }
     

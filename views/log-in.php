@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 if(isset($_SESSION['user_type'])) {
     if($_SESSION['user_type'] == "employer"){
         header("Location: employer.php");
@@ -35,7 +35,7 @@ if(isset($_SESSION['user_type'])) {
         <li><img src="../images/twitter.png" onclick="" width="20px" height="20px"></li>
         <li><img src="../images/instagram.png" onclick="" width="20px" height="20px"></li>
     </ul>
-    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="validateForm();" class ="">
+    <form id="login" method="POST" action="../controller/loginControl.php" onsubmit="return validateForm();" class ="">
         <h1>SpiderWork</h1>
         <input type="text"  placeholder="username" name="username"><br>
         <input type = "password"  placeholder="password" name="password"><br>
